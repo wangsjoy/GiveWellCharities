@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0875B6AEFDDAD48E5748FF55 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */; };
 		127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58CD269CC4E300F43132 /* AppDelegate.m */; };
 		127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58D0269CC4E300F43132 /* SceneDelegate.m */; };
-		127D58D4269CC4E300F43132 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58D3269CC4E300F43132 /* ViewController.m */; };
 		127D58D7269CC4E300F43132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127D58D5269CC4E300F43132 /* Main.storyboard */; };
 		127D58D9269CC4E400F43132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127D58D8269CC4E400F43132 /* Assets.xcassets */; };
 		127D58DC269CC4E400F43132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */; };
 		127D58DF269CC4E400F43132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58DE269CC4E400F43132 /* main.m */; };
 		127D58E9269CC4E400F43132 /* GiveWellCharitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58E8269CC4E400F43132 /* GiveWellCharitiesTests.m */; };
 		127D58F4269CC4E400F43132 /* GiveWellCharitiesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58F3269CC4E400F43132 /* GiveWellCharitiesUITests.m */; };
+		127D5904269CC65600F43132 /* OrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5903269CC65600F43132 /* OrganizationViewController.m */; };
+		127D5907269CC66400F43132 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5906269CC66400F43132 /* ProfileViewController.m */; };
+		127D590A269CC6BA00F43132 /* OrganizationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5909269CC6BA00F43132 /* OrganizationCell.m */; };
+		9222A11D01165D5793A681E1 /* Pods_GiveWellCharities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5DEFCB628F7EA8AABBC231 /* Pods_GiveWellCharities.framework */; };
+		F20175719996794F5A2CC4CE /* Pods_GiveWellCharitiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B185D59C6F78652C8F50ADF /* Pods_GiveWellCharitiesTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA0B63DA77499B508EA0F24 /* Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig"; path = "Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		127D58C9269CC4E300F43132 /* GiveWellCharities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiveWellCharities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127D58CC269CC4E300F43132 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		127D58CD269CC4E300F43132 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		127D58CF269CC4E300F43132 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		127D58D0269CC4E300F43132 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		127D58D2269CC4E300F43132 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		127D58D3269CC4E300F43132 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		127D58D6269CC4E300F43132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		127D58D8269CC4E400F43132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		127D58DB269CC4E400F43132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +58,20 @@
 		127D58EF269CC4E400F43132 /* GiveWellCharitiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiveWellCharitiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		127D58F3269CC4E400F43132 /* GiveWellCharitiesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiveWellCharitiesUITests.m; sourceTree = "<group>"; };
 		127D58F5269CC4E400F43132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		127D5902269CC65600F43132 /* OrganizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationViewController.h; sourceTree = "<group>"; };
+		127D5903269CC65600F43132 /* OrganizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationViewController.m; sourceTree = "<group>"; };
+		127D5905269CC66400F43132 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		127D5906269CC66400F43132 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		127D5908269CC6BA00F43132 /* OrganizationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationCell.h; sourceTree = "<group>"; };
+		127D5909269CC6BA00F43132 /* OrganizationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationCell.m; sourceTree = "<group>"; };
+		156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharitiesTests.debug.xcconfig"; path = "Target Support Files/Pods-GiveWellCharitiesTests/Pods-GiveWellCharitiesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiveWellCharities_GiveWellCharitiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C5DEFCB628F7EA8AABBC231 /* Pods_GiveWellCharities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiveWellCharities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1D73CC1C1F64ECCBF9DB9E /* Pods-GiveWellCharities-GiveWellCharitiesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharities-GiveWellCharitiesUITests.debug.xcconfig"; path = "Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B185D59C6F78652C8F50ADF /* Pods_GiveWellCharitiesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiveWellCharitiesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D40A09AFCC8AFC26C9F1D0 /* Pods-GiveWellCharitiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharitiesTests.release.xcconfig"; path = "Target Support Files/Pods-GiveWellCharitiesTests/Pods-GiveWellCharitiesTests.release.xcconfig"; sourceTree = "<group>"; };
+		F7EB245B89D71D655749EB60 /* Pods-GiveWellCharities.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharities.release.xcconfig"; path = "Target Support Files/Pods-GiveWellCharities/Pods-GiveWellCharities.release.xcconfig"; sourceTree = "<group>"; };
+		FDB8997F5011F24D9F5959FF /* Pods-GiveWellCharities.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharities.debug.xcconfig"; path = "Target Support Files/Pods-GiveWellCharities/Pods-GiveWellCharities.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9222A11D01165D5793A681E1 /* Pods_GiveWellCharities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F20175719996794F5A2CC4CE /* Pods_GiveWellCharitiesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0875B6AEFDDAD48E5748FF55 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +109,8 @@
 				127D58E7269CC4E400F43132 /* GiveWellCharitiesTests */,
 				127D58F2269CC4E400F43132 /* GiveWellCharitiesUITests */,
 				127D58CA269CC4E300F43132 /* Products */,
+				8D643AE569CF21F48BD35309 /* Pods */,
+				E522BB55FDF2A6238151346B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,12 +127,14 @@
 		127D58CB269CC4E300F43132 /* GiveWellCharities */ = {
 			isa = PBXGroup;
 			children = (
+				127D590B269CC6BF00F43132 /* Cells */,
+				127D5901269CC63D00F43132 /* ViewControllers */,
 				127D58CC269CC4E300F43132 /* AppDelegate.h */,
 				127D58CD269CC4E300F43132 /* AppDelegate.m */,
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
-				127D58D2269CC4E300F43132 /* ViewController.h */,
-				127D58D3269CC4E300F43132 /* ViewController.m */,
+				127D5908269CC6BA00F43132 /* OrganizationCell.h */,
+				127D5909269CC6BA00F43132 /* OrganizationCell.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
 				127D58D8269CC4E400F43132 /* Assets.xcassets */,
 				127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */,
@@ -137,6 +162,48 @@
 			path = GiveWellCharitiesUITests;
 			sourceTree = "<group>";
 		};
+		127D5901269CC63D00F43132 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				127D5902269CC65600F43132 /* OrganizationViewController.h */,
+				127D5903269CC65600F43132 /* OrganizationViewController.m */,
+				127D5905269CC66400F43132 /* ProfileViewController.h */,
+				127D5906269CC66400F43132 /* ProfileViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		127D590B269CC6BF00F43132 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8D643AE569CF21F48BD35309 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDB8997F5011F24D9F5959FF /* Pods-GiveWellCharities.debug.xcconfig */,
+				F7EB245B89D71D655749EB60 /* Pods-GiveWellCharities.release.xcconfig */,
+				8D1D73CC1C1F64ECCBF9DB9E /* Pods-GiveWellCharities-GiveWellCharitiesUITests.debug.xcconfig */,
+				0CA0B63DA77499B508EA0F24 /* Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig */,
+				156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */,
+				D3D40A09AFCC8AFC26C9F1D0 /* Pods-GiveWellCharitiesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E522BB55FDF2A6238151346B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C5DEFCB628F7EA8AABBC231 /* Pods_GiveWellCharities.framework */,
+				7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */,
+				9B185D59C6F78652C8F50ADF /* Pods_GiveWellCharitiesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +211,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 127D58F8269CC4E400F43132 /* Build configuration list for PBXNativeTarget "GiveWellCharities" */;
 			buildPhases = (
+				F47B606D8CACA9EF75229549 /* [CP] Check Pods Manifest.lock */,
 				127D58C5269CC4E300F43132 /* Sources */,
 				127D58C6269CC4E300F43132 /* Frameworks */,
 				127D58C7269CC4E300F43132 /* Resources */,
+				CF2ABBA0B658769BAFA6534C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +230,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 127D58FB269CC4E400F43132 /* Build configuration list for PBXNativeTarget "GiveWellCharitiesTests" */;
 			buildPhases = (
+				2FD3DEF6D185182D42E8DC7E /* [CP] Check Pods Manifest.lock */,
 				127D58E0269CC4E400F43132 /* Sources */,
 				127D58E1269CC4E400F43132 /* Frameworks */,
 				127D58E2269CC4E400F43132 /* Resources */,
@@ -179,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 127D58FE269CC4E400F43132 /* Build configuration list for PBXNativeTarget "GiveWellCharitiesUITests" */;
 			buildPhases = (
+				0CBFD294FFCFE83EF7B2D938 /* [CP] Check Pods Manifest.lock */,
 				127D58EB269CC4E400F43132 /* Sources */,
 				127D58EC269CC4E400F43132 /* Frameworks */,
 				127D58ED269CC4E400F43132 /* Resources */,
+				11124C52D2313FF908D8D93E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,15 +333,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CBFD294FFCFE83EF7B2D938 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiveWellCharities-GiveWellCharitiesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		11124C52D2313FF908D8D93E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FD3DEF6D185182D42E8DC7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiveWellCharitiesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF2ABBA0B658769BAFA6534C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GiveWellCharities/Pods-GiveWellCharities-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GiveWellCharities/Pods-GiveWellCharities-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GiveWellCharities/Pods-GiveWellCharities-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F47B606D8CACA9EF75229549 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiveWellCharities-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		127D58C5269CC4E300F43132 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127D58D4269CC4E300F43132 /* ViewController.m in Sources */,
+				127D590A269CC6BA00F43132 /* OrganizationCell.m in Sources */,
 				127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */,
 				127D58DF269CC4E400F43132 /* main.m in Sources */,
 				127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */,
+				127D5904269CC65600F43132 /* OrganizationViewController.m in Sources */,
+				127D5907269CC66400F43132 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +615,7 @@
 		};
 		127D58F9269CC4E400F43132 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDB8997F5011F24D9F5959FF /* Pods-GiveWellCharities.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +634,7 @@
 		};
 		127D58FA269CC4E400F43132 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7EB245B89D71D655749EB60 /* Pods-GiveWellCharities.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -474,6 +653,7 @@
 		};
 		127D58FC269CC4E400F43132 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +674,7 @@
 		};
 		127D58FD269CC4E400F43132 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3D40A09AFCC8AFC26C9F1D0 /* Pods-GiveWellCharitiesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +695,7 @@
 		};
 		127D58FF269CC4E400F43132 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D1D73CC1C1F64ECCBF9DB9E /* Pods-GiveWellCharities-GiveWellCharitiesUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
@@ -532,6 +714,7 @@
 		};
 		127D5900269CC4E400F43132 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA0B63DA77499B508EA0F24 /* Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;

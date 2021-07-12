@@ -1,0 +1,6 @@
+framework module Pods_GiveWellCharities {
+  umbrella header "Pods-GiveWellCharities-umbrella.h"
+
+  export *
+  module * { export * }
+}
