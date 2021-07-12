@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		127D5904269CC65600F43132 /* OrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5903269CC65600F43132 /* OrganizationViewController.m */; };
 		127D5907269CC66400F43132 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5906269CC66400F43132 /* ProfileViewController.m */; };
 		127D590A269CC6BA00F43132 /* OrganizationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5909269CC6BA00F43132 /* OrganizationCell.m */; };
+		12C6830D269CD77100BA08BF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C6830C269CD77100BA08BF /* LoginViewController.m */; };
 		9222A11D01165D5793A681E1 /* Pods_GiveWellCharities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5DEFCB628F7EA8AABBC231 /* Pods_GiveWellCharities.framework */; };
 		F20175719996794F5A2CC4CE /* Pods_GiveWellCharitiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B185D59C6F78652C8F50ADF /* Pods_GiveWellCharitiesTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,8 @@
 		127D5906269CC66400F43132 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		127D5908269CC6BA00F43132 /* OrganizationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationCell.h; sourceTree = "<group>"; };
 		127D5909269CC6BA00F43132 /* OrganizationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationCell.m; sourceTree = "<group>"; };
+		12C6830B269CD77100BA08BF /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		12C6830C269CD77100BA08BF /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharitiesTests.debug.xcconfig"; path = "Target Support Files/Pods-GiveWellCharitiesTests/Pods-GiveWellCharitiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiveWellCharities_GiveWellCharitiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C5DEFCB628F7EA8AABBC231 /* Pods_GiveWellCharities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiveWellCharities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +172,8 @@
 				127D5903269CC65600F43132 /* OrganizationViewController.m */,
 				127D5905269CC66400F43132 /* ProfileViewController.h */,
 				127D5906269CC66400F43132 /* ProfileViewController.m */,
+				12C6830B269CD77100BA08BF /* LoginViewController.h */,
+				12C6830C269CD77100BA08BF /* LoginViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -190,7 +195,6 @@
 				156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */,
 				D3D40A09AFCC8AFC26C9F1D0 /* Pods-GiveWellCharitiesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -445,6 +449,7 @@
 				127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */,
 				127D58DF269CC4E400F43132 /* main.m in Sources */,
 				127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */,
+				12C6830D269CD77100BA08BF /* LoginViewController.m in Sources */,
 				127D5904269CC65600F43132 /* OrganizationViewController.m in Sources */,
 				127D5907269CC66400F43132 /* ProfileViewController.m in Sources */,
 			);
