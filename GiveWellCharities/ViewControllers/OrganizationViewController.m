@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
+#import "DetailsViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface OrganizationViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,7 +38,9 @@
 - (void)fetchOrganizations {
     //fetch organizations from parse databases
     PFQuery *query = [PFQuery queryWithClassName:@"Organization"];
-    [query orderByDescending:@"createdAt"];
+//    [query orderByDescending:@"createdAt"];
+    [query orderByAscending:@"createdAt"];
+
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *organizations, NSError *error) {
       if (!error) {
@@ -58,15 +62,25 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"detailSegue"]){
+        NSLog(@"Entering Organization Details");
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        UITableViewCell *tappedCell = sender; //sender is just table view cell that was tapped on
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell]; //grabs index path
+        PFObject *organization = self.arrayOfOrganizations[indexPath.row]; //right organization associated with right row
+        detailsViewController.organization = organization; //pass organization to detailsViewController
+    }
+
+
 }
-*/
+
 - (IBAction)didTapLogout:(id)sender {
     //clear the current user
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
@@ -93,6 +107,14 @@
     cell.nameLabel.text = organizationName;
     cell.synopsisLabel.text = mission;
     cell.summaryLabel.text = summary;
+    
+    //organization logo picture
+    PFFileObject *logoPicture = organization[@"logo"];
+    NSString *logoURLString = logoPicture.url;
+    NSURL *logoURL = [NSURL URLWithString:logoURLString];
+    cell.logoView.image = nil;
+    [cell.logoView setImageWithURL:logoURL];
+    
     return cell;
 }
 
