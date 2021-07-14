@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0875B6AEFDDAD48E5748FF55 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */; };
+		121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */; };
 		127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58CD269CC4E300F43132 /* AppDelegate.m */; };
 		127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D58D0269CC4E300F43132 /* SceneDelegate.m */; };
 		127D58D7269CC4E300F43132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127D58D5269CC4E300F43132 /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		0CA0B63DA77499B508EA0F24 /* Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig"; path = "Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		121F3BAD269E3E5D00CA1D38 /* DonateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateViewController.h; sourceTree = "<group>"; };
+		121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateViewController.m; sourceTree = "<group>"; };
 		127D58C9269CC4E300F43132 /* GiveWellCharities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiveWellCharities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127D58CC269CC4E300F43132 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		127D58CD269CC4E300F43132 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				12C6830C269CD77100BA08BF /* LoginViewController.m */,
 				12C6830E269D0D0700BA08BF /* DetailsViewController.h */,
 				12C6830F269D0D0700BA08BF /* DetailsViewController.m */,
+				121F3BAD269E3E5D00CA1D38 /* DonateViewController.h */,
+				121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */,
 				127D58DF269CC4E400F43132 /* main.m in Sources */,
 				127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */,
+				121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */,
 				12C6830D269CD77100BA08BF /* LoginViewController.m in Sources */,
 				127D5904269CC65600F43132 /* OrganizationViewController.m in Sources */,
 				127D5907269CC66400F43132 /* ProfileViewController.m in Sources */,
