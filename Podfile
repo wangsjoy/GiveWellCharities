@@ -7,6 +7,7 @@ target 'GiveWellCharities' do
 
   # Pods for GiveWellCharities
 pod 'Parse'
+pod 'Parse/UI'
 pod 'AFNetworking'
 pod 'DateTools'
 

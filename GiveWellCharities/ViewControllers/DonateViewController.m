@@ -8,6 +8,8 @@
 #import "DonateViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import <Parse/Parse.h>
+#import "SceneDelegate.h"
+#import "OrganizationViewController.h"
 
 @interface DonateViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
@@ -28,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *minimumLabel;
 @property (assign, nonatomic) BOOL anonymous;
 @property (weak, nonatomic) IBOutlet UIButton *anonymousButton;
+@property (nonatomic, strong) NSMutableArray *arrayOfAccounts;
 
 @end
 
@@ -56,6 +59,58 @@
     NSURL *logoURL = [NSURL URLWithString:logoURLString];
     self.logoView.image = nil;
     [self.logoView setImageWithURL:logoURL];
+    
+    //check if any default credit card information is uploaded
+    [self userPaymentAccount];
+}
+
+- (void)userPaymentAccount{
+    //load in default credit card information
+    [self fetchAccounts];
+    PFUser *user = [PFUser currentUser];
+    if (![user[@"firstName"] isEqualToString:@""]){
+        self.firstNameField.text = user[@"firstName"];
+    }
+    if (![user[@"lastName"] isEqualToString:@""]){
+        self.lastNameField.text = user[@"lastName"];
+    }
+    if (![user[@"email"] isEqualToString:@""]){
+        self.emailField.text = user[@"email"];
+    }
+}
+
+- (void)fetchAccounts{
+    //fetch all donation transactions
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"BankAccount"];
+    PFUser *user = [PFUser currentUser];
+    [query whereKey:@"author" equalTo:user];
+    [query orderByDescending:@"createdAt"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *accounts, NSError *error) {
+        if (accounts != nil) {
+            // do something with the array of object returned by the call
+            NSLog(@"All Accounts retrieved, shown below:");
+            for (PFObject *account in accounts){
+                NSLog(@"%@", account);
+            }
+            self.arrayOfAccounts = accounts;
+            
+            //user has existing accounts, take most recently added account
+            //(in the future, can account for choosing among different accounts)
+            PFObject *account = self.arrayOfAccounts[0];
+            self.cardNumberField.text = account[@"cardNumber"];
+            self.cardCVVField.text = account[@"cardCVV"];
+            self.cardExpirationField.text = account[@"expirationDate"];
+            self.postalCodeField.text = account[@"zipcode"];
+            self.countryField.text = account[@"country"];
+
+        } else {
+            NSLog(@"Either no accounts stored for the user or error");
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 - (IBAction)onTap:(id)sender {
@@ -66,9 +121,6 @@
     double totalAmount = amount*modeMultiplier;
     if (totalAmount >= 5){
         NSLog(@"Exiting text field");
-//        NSString *donationMessage = [@"$" stringByAppendingFormat:
-//                                     @"%.2f", totalAmount];
-//        self.donationMessageLabel.text = donationMessage;
         [self.view endEditing:true];
     } else {
         NSLog(@"Donation Minimum not met");
@@ -140,6 +192,13 @@
     transaction[@"zipcode"] = self.postalCodeField.text;
     transaction[@"country"] = self.countryField.text;
     transaction[@"expirationDate"] = self.cardExpirationField.text;
+    transaction[@"organization"] = self.organization;
+    
+    //metric (for displays on profile view controller)
+    transaction[@"organizationName"] = self.organization[@"organizationName"];
+    transaction[@"metricString"] = self.impactMetricLabel.text;
+    transaction[@"metricQuantity"] = self.impactQuantityLabel.text; //string (not number)
+    transaction[@"metricImage"] = self.organization[@"metricImage"];
     
     //amount donated calculation and setting mode of transaction
     double amount = [self.donationField.text doubleValue];
@@ -174,6 +233,13 @@
 
 - (IBAction)didTapDonate:(id)sender {
     [self donateQuery];
+    
+    //return to tab bar controller
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"GiveWellTabBarController"];
+    myDelegate.window.rootViewController = tabBarController;
+    NSLog(@"Successfully returned to tab bar controller!");//return to tab bar controller
 }
 
 - (IBAction)didTapAnonymous:(id)sender {

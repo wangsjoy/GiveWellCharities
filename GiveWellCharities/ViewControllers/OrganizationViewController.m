@@ -81,23 +81,6 @@
 
 }
 
-- (IBAction)didTapLogout:(id)sender {
-    //clear the current user
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Errror:%@", error.localizedDescription);
-            
-        } else {
-            SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            myDelegate.window.rootViewController = loginViewController;
-            NSLog(@"Successfully logged out user!");//dismiss last view controller
-        }
-        
-    }];
-}
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     OrganizationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrganizationCell"];
     PFObject *organization = self.arrayOfOrganizations[indexPath.row];
