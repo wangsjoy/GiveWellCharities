@@ -160,27 +160,6 @@
     return newImage;
 }
 
-//- (UIImage *)fetchPaymentMetric:(PFObject *)payment {
-//    //code
-//    //format dictionary in the following format: {metricQuantity: 3, metricString: "malaria nets", metricImage: UIImage}
-//    UIImage *image = [[UIImage alloc] init];
-//    PFQuery *query = [PFQuery queryWithClassName:@"Organization"];
-//    PFObject *organization = payment[@"organization"];
-//    [query whereKey:@"objectId" equalTo:organization.objectId];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *organizations, NSError *error) {
-//      if (!error) {
-//          NSLog(@"Found");
-////        for (PFObject *organization in organizations) {
-////            NSLog(@"%@", organization[@"organizationName"]);
-////        }
-//      } else {
-//        // Log details of the failure
-//        NSLog(@"Error: %@ %@", error, [error userInfo]);
-//      }
-//    }];
-//    //(NSDictionary *)
-//}
-
 - (void)fetchTransactions{
     //fetch all donation transactions
     

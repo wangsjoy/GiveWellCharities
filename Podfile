@@ -10,6 +10,7 @@ pod 'Parse'
 pod 'Parse/UI'
 pod 'AFNetworking'
 pod 'DateTools'
+pod 'GoogleMaps', '5.1.0'
 
   target 'GiveWellCharitiesTests' do
     inherit! :search_paths

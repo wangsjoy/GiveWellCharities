@@ -10,8 +10,10 @@
 #import <Parse/Parse.h>
 #import "SceneDelegate.h"
 #import "OrganizationViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface DonateViewController ()
+@interface DonateViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeControl;
@@ -31,6 +33,8 @@
 @property (assign, nonatomic) BOOL anonymous;
 @property (weak, nonatomic) IBOutlet UIButton *anonymousButton;
 @property (nonatomic, strong) NSMutableArray *arrayOfAccounts;
+@property (nonatomic) NSNumber* latitude;
+@property (nonatomic) NSNumber* longitude;
 
 @end
 
@@ -39,6 +43,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //request authorization
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestAlwaysAuthorization];
+    [locationManager startUpdatingLocation];
     
     //initially set donation as public
     self.anonymous = NO;
@@ -63,6 +75,24 @@
     //check if any default credit card information is uploaded
     [self userPaymentAccount];
 }
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    NSLog(@"OldLocation %f %f", oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
+    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    
+    CLLocationCoordinate2D coordinate = newLocation.coordinate;
+    
+    float latitude = coordinate.latitude;
+    float longitude = coordinate.longitude;
+    
+    NSNumber *latitudeNumber = [NSNumber numberWithFloat:latitude];
+    NSNumber *longitudeNumber = [NSNumber numberWithFloat:longitude];
+    
+    self.latitude = latitudeNumber;
+    self.longitude = longitudeNumber;
+}
+
+
 
 - (void)userPaymentAccount{
     //load in default credit card information
@@ -200,6 +230,11 @@
     transaction[@"metricQuantity"] = self.impactQuantityLabel.text; //string (not number)
     transaction[@"metricImage"] = self.organization[@"metricImage"];
     
+    //set location latitude and longitude
+    transaction[@"longitude"] = self.longitude;
+    transaction[@"latitude"] = self.latitude;
+    [locationManager stopUpdatingLocation]; //stop sending location updates
+    
     //amount donated calculation and setting mode of transaction
     double amount = [self.donationField.text doubleValue];
     double modeArray[] = {12, 1};
@@ -229,6 +264,7 @@
           NSLog(@"Error occurred: %@", error.localizedDescription);
       }
     }];
+    
 }
 
 - (IBAction)didTapDonate:(id)sender {

@@ -1226,6 +1226,7 @@
                     <connections>
                         <segue destination="hvT-0l-kbJ" kind="relationship" relationship="viewControllers" id="yxu-xE-cwL"/>
                         <segue destination="5Ok-Xg-lsb" kind="relationship" relationship="viewControllers" id="qif-w1-4Ky"/>
+                        <segue destination="iJm-iV-wEd" kind="relationship" relationship="viewControllers" id="3Kw-4j-IFi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nta-NH-fui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1251,6 +1252,22 @@
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="549.77678571428567"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="1hX-6B-UJ3">
+            <objects>
+                <viewController id="KMR-KC-CaU" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KcT-Zt-xBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="yxq-bU-H4f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9G9-eK-4Y0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RtR-eM-nkY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821.7391304347827" y="2913.6160714285711"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Fq-y0-qhd">
             <objects>
@@ -1270,6 +1287,25 @@
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="1314.5089285714284"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XLk-4F-7XH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iJm-iV-wEd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="71O-K3-G3v"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cll-qr-5yY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KMR-KC-CaU" kind="relationship" relationship="rootViewController" id="b3z-bN-YoK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V7J-dE-1TG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.59420289855075" y="2913.6160714285711"/>
+        </scene>
     </scenes>
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
@@ -1279,6 +1315,7 @@
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="givewell-logo-vector" width="900" height="500"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
