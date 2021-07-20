@@ -34,9 +34,6 @@
     
     [self fetchLocations];
     
-    
-    
-    
 }
 
 - (void)fetchLocations{
@@ -75,15 +72,25 @@
     
     // Creates a marker for each location
     for (PFObject *location in self.arrayOfLocations){
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        NSNumber *longitudeNumber = location[@"longitude"];
-        NSNumber *latitudeNumber = location[@"latitude"];
-        double longitude = [longitudeNumber doubleValue];
-        double latitude = [latitudeNumber doubleValue];
-        marker.position = CLLocationCoordinate2DMake(latitude, longitude);
-//        marker.title = @"Sydney";
-//        marker.snippet = @"Australia";
-        marker.map = mapView;
+
+        //map only if contribution is public
+//        BOOL anonymous = location[@"anonymous"];
+//        if ([location[@"anonymous"] isEqualToString:@"0"])
+        if ([location[@"anonymousString"] isEqualToString:@"false"]){
+            NSLog(@"Public Donation");
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            NSNumber *longitudeNumber = location[@"longitude"];
+            NSNumber *latitudeNumber = location[@"latitude"];
+            double longitude = [longitudeNumber doubleValue];
+            double latitude = [latitudeNumber doubleValue];
+            marker.position = CLLocationCoordinate2DMake(latitude, longitude);
+            marker.title = location[@"metricString"];
+            marker.snippet = location[@"metricQuantity"];
+            marker.map = mapView;
+        } else {
+            NSLog(@"Anonymous Donation");
+        }
+
     }
 
     

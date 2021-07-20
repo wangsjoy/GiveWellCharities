@@ -251,8 +251,10 @@
     //anonymous/public donation
     if (self.anonymous){
         transaction[@"anonymous"] = @YES;
+        transaction[@"anonymousString"] = @"true";
     } else {
         transaction[@"anonymous"] = @NO;
+        transaction[@"anonymousString"] = @"false";
     }
     
     [transaction saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
