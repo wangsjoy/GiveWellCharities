@@ -50,7 +50,7 @@
         if (error){
             NSLog(@"%@", error.localizedDescription);
         } else {
-            //successfully returned user
+            //successfully returned user, updated user information
             NSLog(@"Finished updating");
             user[@"firstName"] = self.firstNameField.text;
             user[@"lastName"] = self.lastNameField.text;

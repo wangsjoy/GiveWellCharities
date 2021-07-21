@@ -194,8 +194,6 @@
 				127D58CD269CC4E300F43132 /* AppDelegate.m */,
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
-				12EC19AC26A747A0004A4185 /* OrganizationMapViewController.h */,
-				12EC19AD26A747A0004A4185 /* OrganizationMapViewController.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
 				127D58D8269CC4E400F43132 /* Assets.xcassets */,
 				127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */,
@@ -258,6 +256,8 @@
 			children = (
 				121C31C526A5F5760024BB48 /* MapViewController.h */,
 				121C31C626A5F5760024BB48 /* MapViewController.m */,
+				12EC19AC26A747A0004A4185 /* OrganizationMapViewController.h */,
+				12EC19AD26A747A0004A4185 /* OrganizationMapViewController.m */,
 			);
 			path = "Map ViewControllers";
 			sourceTree = "<group>";

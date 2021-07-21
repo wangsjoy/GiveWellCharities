@@ -19,15 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self fetchAccounts];
+    [self fetchAccounts]; //fetch all payment accounts
 }
 
 - (void)fetchAccounts{
-    //fetch all donation transactions
+    //fetch all payment accounts for current user
     
     PFQuery *query = [PFQuery queryWithClassName:@"BankAccount"];
     [query whereKey:@"author" equalTo:self.user];
@@ -56,10 +55,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"addCardSegue"]){
-        //segue info
         NSLog(@"Entering Payment Methods");
         AddCardViewController *addCardViewController = [segue destinationViewController];
         PFUser *user = [PFUser currentUser];
@@ -69,6 +65,7 @@
 
 -(void)didTapAddButton:(UIButton*)sender
 {
+    //transition to add payment methods
     NSLog(@"Entered tapped state");
      if (sender.tag == (self.arrayOfAccounts.count))
      {

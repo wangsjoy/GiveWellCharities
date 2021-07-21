@@ -20,22 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     //assign the country border keys (array of NSNumbers)
     self.arrayOfCountryKeys = self.organization[@"operatingCountries"];
-//    NSLog(@"Array of Country Keys:");
-//    NSLog(@"%@", self.arrayOfCountryKeys);
-    
-    
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 1.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:37.36
-                                                            longitude:-122.0
-                                                                 zoom:1];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
-//    mapView.myLocationEnabled = YES; //don't show the user location
-    [self.view addSubview:mapView];
     
     //call a query which stores all the borderobjects
     [self fetchBorderObjects];
@@ -45,16 +31,15 @@
     //fetch all donation transactions
     
     PFQuery *query = [PFQuery queryWithClassName:@"Border"];
-//    [query orderByDescending:@"createdAt"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *borders, NSError *error) {
         if (borders != nil) {
             // do something with the array of object returned by the call
             NSLog(@"All Borders retrieved");
-//            for (PFObject *border in borders){
-//                NSLog(@"%@", border);
-//            }
+            for (PFObject *border in borders){
+                NSLog(@"%@", border);
+            }
             self.arrayOfBorderCoordinates = borders;
             [self drawBorderPath]; //draw each border
 
@@ -65,7 +50,6 @@
 }
 
 - (void)drawBorderPath{
-    //code
     
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 1.
@@ -89,7 +73,7 @@
         if ([self.arrayOfCountryKeys containsObject:countryKeyNumber]){
             NSLog(@"Drawing Border for %@", border[@"countryName"]);
 
-            // Create a rectangular path
+            // Create a path which defines the country border
             GMSMutablePath *countryBorder = [GMSMutablePath path];
             
             //populate array to store all longitude and latitude values
@@ -99,7 +83,7 @@
             
             //first check if border is noncontiguous
             if ([border[@"adjusted"] isEqualToString:@"True"]){
-                //use adjusted coordinates
+                //if contiguous, use adjusted coordinates
                 self.arrayOfLatitudes = border[@"adjustedLat"];
                 self.arrayOfLongitudes = border[@"adjustedLon"];
             } else {
@@ -107,6 +91,7 @@
                 self.arrayOfLongitudes = border[@"lon"];
             }
 
+            //add each coordinate (lat,lon) to path
             NSUInteger length = [self.arrayOfLatitudes count];
             NSUInteger arrow = 0;
             while (arrow < length){
@@ -121,11 +106,9 @@
             // Create the polygon, and assign it to the map.
             GMSPolygon *polygon = [GMSPolygon polygonWithPath:countryBorder];
             
-            //deal with colors
             //increment color
             startingColor += colorIncrement;
             NSMutableArray *colorMap = [self colorMap:startingColor];
-//            NSLog(@"Logging the colors of the colorMap: %@", colorMap);
             double red = [colorMap[0] doubleValue];
             double green = [colorMap[1] doubleValue];
             double blue = [colorMap[2] doubleValue];
@@ -133,7 +116,6 @@
 
             polygon.strokeColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
 
-//            polygon.strokeColor = [UIColor blackColor];
             polygon.strokeWidth = 2;
             polygon.map = mapView;
             
@@ -144,7 +126,8 @@
                 [self.arrayOfLatitudes removeAllObjects];
                 self.arrayOfLatitudes = border[@"additionalLat"];
                 self.arrayOfLongitudes = border[@"additionalLon"];
-                // Create another border path
+                
+                // Create another border path, populating path with (lat, lon)
                 GMSMutablePath *anotherCountryBorder = [GMSMutablePath path];
                 NSUInteger anotherLength = [self.arrayOfLatitudes count];
                 NSUInteger anotherArrow = 0;
@@ -157,12 +140,11 @@
                     anotherArrow++;
                 }
 
-                // Create the polygon, and assign it to the map.
+                // Create the polygon, and assign it to the map. Use same color settings since, although non-contiguous borders, all land masses are part of the same country
                 GMSPolygon *anotherPolygon = [GMSPolygon polygonWithPath:anotherCountryBorder];
                 anotherPolygon.fillColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
                 anotherPolygon.strokeColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
                 anotherPolygon.strokeWidth = 2;
-                
                 anotherPolygon.map = mapView;
             }
         } else {
@@ -174,7 +156,8 @@
 
 - (NSMutableArray*)colorMap:(double)colorIncrement{
     //return array with three elements [red, green, blue] (where each element is a double between 0 to 1, inclusive)
-    //start with rounding down
+    //note: color is defined by red, green, blue. Increment the color such that each country drawn has a different distinct look.
+    //start with flooring
     double floored = floor(colorIncrement);
     NSMutableArray *returnedColorArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (floored == 0){

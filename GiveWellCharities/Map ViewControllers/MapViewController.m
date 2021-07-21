@@ -20,19 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    [GMSServices provideAPIKey:@"AIzaSyCQOU0SUZBBkhEUuSL4VZVTG3XZU1lmvDA"];
-    
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 1.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:32.7502
-                                                            longitude:-114.7655
-                                                                 zoom:1];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
-//    mapView.myLocationEnabled = YES; //don't show the user location
-    [self.view addSubview:mapView];
-    
-    [self fetchLocations];
+    [self fetchLocations]; //fetch all donation transactions
     
 }
 
@@ -51,7 +39,7 @@
                 NSLog(@"%@", location);
             }
             self.arrayOfLocations = locations;
-            [self drawMarkers];
+            [self drawMarkers]; //draw a marker for each user location
 
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -60,14 +48,13 @@
 }
      
 - (void)drawMarkers{
-    //code
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 1.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:32.7502
                                                             longitude:-114.7655
                                                                  zoom:1];
     GMSMapView *mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
-//    mapView.myLocationEnabled = YES;
+//    mapView.myLocationEnabled = YES; //don't show user location
     [self.view addSubview:mapView];
     
     // Creates a marker for each location
@@ -77,11 +64,15 @@
         if ([location[@"anonymousString"] isEqualToString:@"false"]){
             NSLog(@"Public Donation");
             GMSMarker *marker = [[GMSMarker alloc] init];
+            
+            //marker location
             NSNumber *longitudeNumber = location[@"longitude"];
             NSNumber *latitudeNumber = location[@"latitude"];
             double longitude = [longitudeNumber doubleValue];
             double latitude = [latitudeNumber doubleValue];
             marker.position = CLLocationCoordinate2DMake(latitude, longitude);
+            
+            //marker text
             marker.title = location[@"metricQuantity"];
             marker.snippet = location[@"metricString"];
             marker.map = mapView;

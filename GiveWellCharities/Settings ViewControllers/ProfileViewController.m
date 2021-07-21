@@ -135,7 +135,7 @@
             //successfully returned user
             NSData *imageData = UIImagePNGRepresentation(self.image);
             PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
-            user[@"profilePicture"] = imageFile;
+            user[@"profilePicture"] = imageFile; //update profile picture
             NSLog(@"Finished updating");
             [user saveInBackground];
         }
@@ -203,6 +203,7 @@
      - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
         DonationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DonationCell"];
         PFObject *payment = self.arrayOfPayments[indexPath.row];
+         //populate cell labels
          cell.organizationLabel.text = payment[@"organizationName"];
          cell.metricStringLabel.text = payment[@"metricString"];
          cell.metricQuantityLabel.text = payment[@"metricQuantity"];

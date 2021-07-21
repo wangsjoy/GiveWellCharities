@@ -25,11 +25,6 @@
     self.tableView.dataSource = self;
 }
 
-//icons
-//person.circle
-//creditcard
-//arrow.down.left.circle.fill
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //only 3 rows in tableView (account settings, payment methods, sign out) - perform appropriate segue for each
@@ -41,7 +36,7 @@
         //clear the current user
         [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
             if (error) {
-                NSLog(@"Errror:%@", error.localizedDescription);
+                NSLog(@"Error:%@", error.localizedDescription);
                 
             } else {
                 SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
@@ -65,7 +60,6 @@
         NSLog(@"Entering Account Settings");
         AccountSettingsViewController *accountSettingsViewController = [segue destinationViewController];
         PFUser *user = [PFUser currentUser];
-//        accountSettingsViewController.user = user; //pass user to accountSettingsViewController
     } else if ([segue.identifier isEqualToString:@"bankingSegue"]){
         NSLog(@"Entering Payment Methods");
         PaymentMethodsViewController *paymentMethodsViewController = [segue destinationViewController];
@@ -77,6 +71,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     SettingsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell"];
+    //Recall: only 3 rows in tableView (account settings, payment methods, sign out) - perform appropriate segue for each
     if (indexPath.row == 0){
         UIImage *image = [UIImage systemImageNamed:@"person.circle"];
         [cell.settingsIconView setImage:image];
