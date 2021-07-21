@@ -8,6 +8,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "DonateViewController.h"
+#import "OrganizationMapViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
@@ -114,6 +115,9 @@
 }
 
 
+- (IBAction)didTapMap:(id)sender {
+    [self performSegueWithIdentifier:@"organizationMapSegue" sender:nil];
+}
 
 
 #pragma mark - Navigation
@@ -127,6 +131,10 @@
         NSLog(@"Entering Donation View Controller");
         DonateViewController *donateViewController = [segue destinationViewController];
         donateViewController.organization = self.organization; //pass organization to detailsViewController
+    } else if ([segue.identifier isEqualToString:@"organizationMapSegue"]){
+        NSLog(@"Entering Organization Map View Controller");
+        OrganizationMapViewController *organizationMapViewController = [segue destinationViewController];
+        organizationMapViewController.organization = self.organization; //pass organization to detailsViewController
     }
     
 }

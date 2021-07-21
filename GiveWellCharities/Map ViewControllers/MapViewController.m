@@ -21,15 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [GMSServices provideAPIKey:@"AIzaSyCQOU0SUZBBkhEUuSL4VZVTG3XZU1lmvDA"];
+//    [GMSServices provideAPIKey:@"AIzaSyCQOU0SUZBBkhEUuSL4VZVTG3XZU1lmvDA"];
     
     // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
+    // coordinate -33.86,151.20 at zoom level 1.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:32.7502
                                                             longitude:-114.7655
                                                                  zoom:1];
     GMSMapView *mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
-//    mapView.myLocationEnabled = YES;
+//    mapView.myLocationEnabled = YES; //don't show the user location
     [self.view addSubview:mapView];
     
     [self fetchLocations];
@@ -62,7 +62,7 @@
 - (void)drawMarkers{
     //code
     // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
+    // coordinate -33.86,151.20 at zoom level 1.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:32.7502
                                                             longitude:-114.7655
                                                                  zoom:1];
@@ -74,8 +74,6 @@
     for (PFObject *location in self.arrayOfLocations){
 
         //map only if contribution is public
-//        BOOL anonymous = location[@"anonymous"];
-//        if ([location[@"anonymous"] isEqualToString:@"0"])
         if ([location[@"anonymousString"] isEqualToString:@"false"]){
             NSLog(@"Public Donation");
             GMSMarker *marker = [[GMSMarker alloc] init];
@@ -84,47 +82,14 @@
             double longitude = [longitudeNumber doubleValue];
             double latitude = [latitudeNumber doubleValue];
             marker.position = CLLocationCoordinate2DMake(latitude, longitude);
-            marker.title = location[@"metricString"];
-            marker.snippet = location[@"metricQuantity"];
+            marker.title = location[@"metricQuantity"];
+            marker.snippet = location[@"metricString"];
             marker.map = mapView;
         } else {
             NSLog(@"Anonymous Donation");
         }
-
     }
-
-    
-    
 }
-
-
-//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-//    NSLog(@"OldLocation %f %f", oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
-//    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-//
-//
-////    CLLocation *coordinate = newLocation.coordinate;
-//    CLLocationCoordinate2D coordinate = newLocation.coordinate;
-//    float latitude = coordinate.latitude;
-//    float longitude = coordinate.longitude;
-//
-//    // Create a GMSCameraPosition that tells the map to display the
-//    // coordinate -33.86,151.20 at zoom level 6.
-//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:32.7502
-//                                                            longitude:-114.7655
-//                                                                 zoom:1];
-//    GMSMapView *mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
-//    mapView.myLocationEnabled = YES;
-//    [self.view addSubview:mapView];
-//
-//    // Creates a marker in the center of the map.
-//    GMSMarker *marker = [[GMSMarker alloc] init];
-//    marker.position = CLLocationCoordinate2DMake(latitude, longitude);
-//    marker.title = @"Sydney";
-//    marker.snippet = @"Australia";
-//    marker.map = mapView;
-//
-//}
 
 /*
 #pragma mark - Navigation

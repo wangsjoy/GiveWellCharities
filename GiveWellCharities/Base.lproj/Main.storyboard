@@ -644,6 +644,20 @@
                                     <action selector="didTapDonate:" destination="BPH-dJ-qNg" eventType="touchUpInside" id="MYn-xd-9dA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-p3-dYU">
+                                <rect key="frame" x="187" y="183.5" width="108" height="30"/>
+                                <color key="backgroundColor" red="0.34595421009999999" green="0.68466784290000005" blue="0.35283237049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Jg3-px-Sxt"/>
+                                    <constraint firstAttribute="width" constant="108" id="PYg-JL-TCc"/>
+                                </constraints>
+                                <state key="normal" title="Impact Map">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapMap:" destination="BPH-dJ-qNg" eventType="touchUpInside" id="bRo-Hf-rUP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pr5-4U-4Wu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -660,6 +674,7 @@
                             <constraint firstItem="VD2-lz-YMQ" firstAttribute="top" secondItem="vdQ-cl-rzF" secondAttribute="bottom" constant="30" id="FUd-h8-ne2"/>
                             <constraint firstItem="VD2-lz-YMQ" firstAttribute="leading" secondItem="Pr5-4U-4Wu" secondAttribute="leading" constant="20" id="FtI-eS-Djh"/>
                             <constraint firstItem="vdQ-cl-rzF" firstAttribute="leading" secondItem="BJ6-G1-qfi" secondAttribute="leading" id="It4-cd-d0h"/>
+                            <constraint firstItem="wPc-p3-dYU" firstAttribute="leading" secondItem="o3X-7h-xdo" secondAttribute="trailing" constant="15" id="RgR-mL-Tla"/>
                             <constraint firstItem="o3X-7h-xdo" firstAttribute="leading" secondItem="Pr5-4U-4Wu" secondAttribute="leading" constant="20" id="Rzw-pz-ETl"/>
                             <constraint firstItem="0ge-BM-v7M" firstAttribute="top" secondItem="H5V-yE-JR8" secondAttribute="bottom" constant="20" id="TOK-4M-Zwl"/>
                             <constraint firstItem="xrY-j1-bm6" firstAttribute="leading" secondItem="mn1-Qd-eAh" secondAttribute="leading" id="U5v-de-kpg"/>
@@ -679,6 +694,7 @@
                             <constraint firstItem="7g4-g9-jj1" firstAttribute="trailing" secondItem="oj8-qe-w94" secondAttribute="trailing" id="kXl-db-NTK"/>
                             <constraint firstItem="0ge-BM-v7M" firstAttribute="leading" secondItem="H5V-yE-JR8" secondAttribute="leading" id="lBW-Yz-CTW"/>
                             <constraint firstItem="Pr5-4U-4Wu" firstAttribute="trailing" secondItem="xrY-j1-bm6" secondAttribute="trailing" constant="15" id="nC2-TM-6gU"/>
+                            <constraint firstItem="wPc-p3-dYU" firstAttribute="top" secondItem="7g4-g9-jj1" secondAttribute="bottom" constant="15" id="nrP-ok-Xei"/>
                             <constraint firstItem="DB3-s0-fMK" firstAttribute="trailing" secondItem="0ge-BM-v7M" secondAttribute="trailing" id="sYE-lP-Gif"/>
                             <constraint firstItem="7g4-g9-jj1" firstAttribute="top" secondItem="oj8-qe-w94" secondAttribute="bottom" constant="10" id="uYs-O7-Jnn"/>
                             <constraint firstItem="4x0-Xq-A5B" firstAttribute="top" secondItem="BJ6-G1-qfi" secondAttribute="top" id="vpw-e1-8sp"/>
@@ -700,6 +716,7 @@
                         <outlet property="quantityLabel" destination="vdQ-cl-rzF" id="AQu-h3-dDb"/>
                         <outlet property="summaryLabel" destination="7g4-g9-jj1" id="vcW-MP-6KH"/>
                         <segue destination="dTV-kz-Mzh" kind="show" identifier="donateSegue" id="mye-oV-LLZ"/>
+                        <segue destination="WME-Ec-er2" kind="show" identifier="organizationMapSegue" id="5rF-5K-Xlu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIW-e4-JeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -710,6 +727,22 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2718.840579710145" y="555.80357142857144"/>
+        </scene>
+        <!--Global Reach-->
+        <scene sceneID="a3D-Ao-kih">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="WME-Ec-er2" customClass="OrganizationMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Qo-in-19J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jdG-HF-ySq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Global Reach" id="JqL-9l-wD2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51I-vh-Bfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3571" y="-248"/>
         </scene>
         <!--Donate View Controller-->
         <scene sceneID="Suk-bv-PYA">
