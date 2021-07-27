@@ -717,6 +717,7 @@
                         <outlet property="summaryLabel" destination="7g4-g9-jj1" id="vcW-MP-6KH"/>
                         <segue destination="dTV-kz-Mzh" kind="show" identifier="donateSegue" id="mye-oV-LLZ"/>
                         <segue destination="WME-Ec-er2" kind="show" identifier="organizationMapSegue" id="5rF-5K-Xlu"/>
+                        <segue destination="8Gw-sF-9l3" kind="show" identifier="donateWebKitSegue" id="X1u-EX-6GH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIW-e4-JeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -727,6 +728,36 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2718.840579710145" y="555.80357142857144"/>
+        </scene>
+        <!--Donate Web Kit View Controller-->
+        <scene sceneID="fSk-8P-e4E">
+            <objects>
+                <viewController id="8Gw-sF-9l3" customClass="DonateWebKitViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="859-SD-37U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-Fb-TrT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="N7t-hl-XRJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dlb-bi-ZgA"/>
+                    <connections>
+                        <outlet property="webKitView" destination="CQy-Fb-TrT" id="QFU-fu-V1P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCg-dD-J38" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4466.666666666667" y="-935.49107142857133"/>
         </scene>
         <!--Global Reach-->
         <scene sceneID="a3D-Ao-kih">
@@ -742,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51I-vh-Bfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3571" y="-248"/>
+            <point key="canvasLocation" x="4479.7101449275369" y="-248.4375"/>
         </scene>
         <!--Donate View Controller-->
         <scene sceneID="Suk-bv-PYA">
@@ -1176,7 +1207,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3582.608695652174" y="568.52678571428567"/>
+            <point key="canvasLocation" x="4492.753623188406" y="568.52678571428567"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Rtq-wC-V05">
@@ -1260,11 +1291,38 @@
                         <segue destination="hvT-0l-kbJ" kind="relationship" relationship="viewControllers" id="yxu-xE-cwL"/>
                         <segue destination="5Ok-Xg-lsb" kind="relationship" relationship="viewControllers" id="qif-w1-4Ky"/>
                         <segue destination="iJm-iV-wEd" kind="relationship" relationship="viewControllers" id="3Kw-4j-IFi"/>
+                        <segue destination="R7p-3u-V3s" kind="relationship" relationship="viewControllers" id="tti-Xa-bb1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nta-NH-fui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19" y="834"/>
+        </scene>
+        <!--Pay Pal View Controller-->
+        <scene sceneID="S9V-eH-IwA">
+            <objects>
+                <viewController id="grq-Jd-Bcl" customClass="PayPalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="htA-tr-KzX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LX-ch-EmD">
+                                <rect key="frame" x="184" y="433" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PayPal"/>
+                                <connections>
+                                    <action selector="didTapPayPal:" destination="grq-Jd-Bcl" eventType="touchUpInside" id="ghX-Az-NkV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dcu-1D-6Fd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="O8s-VF-NTh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tOu-yU-uxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1802.8985507246377" y="-145.3125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KGC-Zu-ara">
@@ -1338,6 +1396,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7J-dE-1TG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="2913.6160714285711"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Z3A-EG-nXk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R7p-3u-V3s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="q1f-Pp-VDh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hcK-Lb-1Xj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="grq-Jd-Bcl" kind="relationship" relationship="rootViewController" id="McI-sW-IZ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUt-JE-j51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.75362318840587" y="-145.3125"/>
         </scene>
     </scenes>
     <resources>

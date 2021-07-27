@@ -59,5 +59,15 @@
     // to restore the scene back to its current state.
 }
 
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts{
+    
+//    for (UIOpenURLContext *context in URLContexts.allObjects){
+//        NSComparisonResult comparisonResult = [context.URL.scheme localizedCaseInsensitiveCompare:@"com.sophiajwang.GiveWellCharities.payments"];
+//        if (comparisonResult == NSOrderedSame){
+//            [BTAppContextSwitcher handleOpenURLContext:context];
+//        }
+//    }
+    
+}
 
 @end

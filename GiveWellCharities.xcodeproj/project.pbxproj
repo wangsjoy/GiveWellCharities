@@ -13,6 +13,7 @@
 		121C31C926A5FAC90024BB48 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31C826A5FAC90024BB48 /* MapKit.framework */; };
 		121C31CB26A6006F0024BB48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31CA26A6006F0024BB48 /* CoreLocation.framework */; };
 		121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */; };
+		123B996E26A9EB430068D43D /* PayPalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B996D26A9EB430068D43D /* PayPalViewController.m */; };
 		1261BCD126A0D5B200D6251F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD026A0D5B200D6251F /* SettingsViewController.m */; };
 		1261BCD426A0DA8F00D6251F /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD326A0DA8F00D6251F /* SettingsCell.m */; };
 		1261BCD726A0E0D300D6251F /* AccountSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD626A0E0D300D6251F /* AccountSettingsViewController.m */; };
@@ -30,6 +31,7 @@
 		127D5904269CC65600F43132 /* OrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5903269CC65600F43132 /* OrganizationViewController.m */; };
 		127D5907269CC66400F43132 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5906269CC66400F43132 /* ProfileViewController.m */; };
 		127D590A269CC6BA00F43132 /* OrganizationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127D5909269CC6BA00F43132 /* OrganizationCell.m */; };
+		1290F47E26B08C840046E0E8 /* DonateWebKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */; };
 		12C6830D269CD77100BA08BF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C6830C269CD77100BA08BF /* LoginViewController.m */; };
 		12C68310269D0D0700BA08BF /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C6830F269D0D0700BA08BF /* DetailsViewController.m */; };
 		12EC19AE26A747A0004A4185 /* OrganizationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EC19AD26A747A0004A4185 /* OrganizationMapViewController.m */; };
@@ -64,6 +66,8 @@
 		121C31CA26A6006F0024BB48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		121F3BAD269E3E5D00CA1D38 /* DonateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateViewController.h; sourceTree = "<group>"; };
 		121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateViewController.m; sourceTree = "<group>"; };
+		123B996C26A9EB430068D43D /* PayPalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalViewController.h; sourceTree = "<group>"; };
+		123B996D26A9EB430068D43D /* PayPalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayPalViewController.m; sourceTree = "<group>"; };
 		1261BCCF26A0D5B200D6251F /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1261BCD026A0D5B200D6251F /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1261BCD226A0DA8F00D6251F /* SettingsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 		127D5906269CC66400F43132 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		127D5908269CC6BA00F43132 /* OrganizationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationCell.h; sourceTree = "<group>"; };
 		127D5909269CC6BA00F43132 /* OrganizationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationCell.m; sourceTree = "<group>"; };
+		1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateWebKitViewController.h; sourceTree = "<group>"; };
+		1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateWebKitViewController.m; sourceTree = "<group>"; };
 		12C6830B269CD77100BA08BF /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		12C6830C269CD77100BA08BF /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		12C6830E269D0D0700BA08BF /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -195,6 +201,10 @@
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
+				1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */,
+				1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */,
+				123B996C26A9EB430068D43D /* PayPalViewController.h */,
+				123B996D26A9EB430068D43D /* PayPalViewController.m */,
 				127D58D8269CC4E400F43132 /* Assets.xcassets */,
 				127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */,
 				127D58DD269CC4E400F43132 /* Info.plist */,
@@ -564,6 +574,7 @@
 				127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */,
 				1261BCD426A0DA8F00D6251F /* SettingsCell.m in Sources */,
 				127D58DF269CC4E400F43132 /* main.m in Sources */,
+				123B996E26A9EB430068D43D /* PayPalViewController.m in Sources */,
 				1261BCE126A0EDDB00D6251F /* AddCardViewController.m in Sources */,
 				120831C5269FAABC00DFEB9C /* DonationCell.m in Sources */,
 				127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */,
@@ -578,6 +589,7 @@
 				12C68310269D0D0700BA08BF /* DetailsViewController.m in Sources */,
 				121C31C726A5F5760024BB48 /* MapViewController.m in Sources */,
 				1261BCDE26A0EABE00D6251F /* BankingCell.m in Sources */,
+				1290F47E26B08C840046E0E8 /* DonateWebKitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

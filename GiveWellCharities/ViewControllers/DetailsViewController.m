@@ -111,7 +111,9 @@
 
 - (IBAction)didTapDonate:(id)sender {
     // manually segue to logged in view
-    [self performSegueWithIdentifier:@"donateSegue" sender:nil];
+//    [self performSegueWithIdentifier:@"donateSegue" sender:nil];
+    [self performSegueWithIdentifier:@"donateWebKitSegue" sender:nil];
+
 }
 
 

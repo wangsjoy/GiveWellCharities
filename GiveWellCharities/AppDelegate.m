@@ -7,7 +7,9 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+
 @import GoogleMaps; //import GoogleMaps SDK
+@import PayPalCheckout; //import PayPal Checkout
 
 @interface AppDelegate ()
 
@@ -29,6 +31,30 @@
     
     //initialize GoogleMaps API Key
     [GMSServices provideAPIKey:@"AIzaSyCQOU0SUZBBkhEUuSL4VZVTG3XZU1lmvDA"];
+    
+//    //initialize PayPalCheckout
+//    PPCheckoutConfig *config = [[PPCheckoutConfig alloc] initWithClientID:@"ClientID" returnUrl:@"returnURL" environment:PPCEnvironmentSandbox];
+//    [[PPCheckoutConfig alloc] initWithClientID:@"ClientID" returnUrl:@"returnURL" environment:PPCEnvironmentSandbox];
+    
+    
+//    PPCheckoutConfig *config = [[PPCheckoutConfig alloc] initWithClientID:@"Client ID" returnUrl:@"returnURL" createOrder:^(PPCCreateOrderAction *create) {
+//        NSLog(@"Created Order");
+//        } onApprove:^(PPCApproval *approved) {
+//            NSLog(@"Approved");
+//        } onCancel:^{
+//            NSLog(@"Cancelled");
+//        } onError:^(PPCErrorInfo *error) {
+//            NSLog(@"Error occurred");
+//        } environment:PPCEnvironmentSandbox];
+//
+//    let config = CheckoutConfig(
+//        clientID: "YOUR_CLIENT_ID",
+//        returnUrl: "YOUR_RETURN_URL",
+//        environment: .sandbox
+//    )
+//
+//    Checkout.set(config: config)
+
 
     return YES;
 }
@@ -49,6 +75,5 @@
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
-
 
 @end

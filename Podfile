@@ -11,6 +11,8 @@ pod 'Parse/UI'
 pod 'AFNetworking'
 pod 'DateTools'
 pod 'GoogleMaps', '5.1.0'
+pod 'Braintree'
+pod 'PayPalCheckout'
 
   target 'GiveWellCharitiesTests' do
     inherit! :search_paths
