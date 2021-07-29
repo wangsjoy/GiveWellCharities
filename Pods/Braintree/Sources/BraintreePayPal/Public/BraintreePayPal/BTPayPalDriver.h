@@ -43,11 +43,6 @@ typedef NS_ENUM(NSInteger, BTPayPalDriverErrorType) {
 */
 @interface BTPayPalDriver : NSObject
 
-//added two lines
-//@property (nonatomic, weak, nullable) id<BTViewControllerPresentingDelegate> viewControllerPresentingDelegate;
-//@property (nonatomic, weak, nullable) id<BTAppSwitchDelegate> appSwitchDelegate;
-//end of added two lines
-
 /**
  Initialize a new PayPal driver instance.
 

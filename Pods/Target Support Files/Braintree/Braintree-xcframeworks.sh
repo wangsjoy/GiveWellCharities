@@ -150,4 +150,5 @@ install_xcframework() {
 }
 
 install_xcframework "${PODS_ROOT}/Braintree/Frameworks/PPRiskMagnes.xcframework" "PPRiskMagnes" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Braintree/Frameworks/CardinalMobile.xcframework" "CardinalMobile" "framework" "ios-armv7_arm64" "ios-i386_x86_64-simulator"
 

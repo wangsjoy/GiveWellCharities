@@ -13,6 +13,8 @@ pod 'DateTools'
 pod 'GoogleMaps', '5.1.0'
 pod 'Braintree'
 pod 'PayPalCheckout'
+pod 'BraintreeDropIn'
+pod 'Braintree/PaymentFlow'
 
   target 'GiveWellCharitiesTests' do
     inherit! :search_paths

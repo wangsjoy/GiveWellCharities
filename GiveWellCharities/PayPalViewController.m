@@ -27,9 +27,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:@"sandbox_5rzkvvbq_yhmkqgz24bmzjpqv"];
+    self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:@"sandbox_5rzkvvbq_yhmkqgz24bmzjpqv"]; //use tokenization key
+//    self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:@"sandbox_5rzkvvbq_yhmkqgz24bmzjpqv"];
+    
+    BTPayPalDriver *payPalDriver = [[BTPayPalDriver alloc] initWithAPIClient:self.braintreeClient];
+    payPalDriver.viewControllerPresentingDelegate = self;
     
 }
+
+
+
 
 - (IBAction)didTapPayPal:(id)sender {
     NSLog(@"Tapped Pay Pal Button");
@@ -57,5 +64,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

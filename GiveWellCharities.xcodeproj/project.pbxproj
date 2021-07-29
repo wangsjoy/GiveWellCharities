@@ -14,6 +14,7 @@
 		121C31CB26A6006F0024BB48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31CA26A6006F0024BB48 /* CoreLocation.framework */; };
 		121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */; };
 		123B996E26A9EB430068D43D /* PayPalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B996D26A9EB430068D43D /* PayPalViewController.m */; };
+		1261753726B3219C003FBDB3 /* BrainTreePayPalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261753626B3219C003FBDB3 /* BrainTreePayPalViewController.m */; };
 		1261BCD126A0D5B200D6251F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD026A0D5B200D6251F /* SettingsViewController.m */; };
 		1261BCD426A0DA8F00D6251F /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD326A0DA8F00D6251F /* SettingsCell.m */; };
 		1261BCD726A0E0D300D6251F /* AccountSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD626A0E0D300D6251F /* AccountSettingsViewController.m */; };
@@ -68,6 +69,8 @@
 		121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateViewController.m; sourceTree = "<group>"; };
 		123B996C26A9EB430068D43D /* PayPalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalViewController.h; sourceTree = "<group>"; };
 		123B996D26A9EB430068D43D /* PayPalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayPalViewController.m; sourceTree = "<group>"; };
+		1261753526B3219C003FBDB3 /* BrainTreePayPalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrainTreePayPalViewController.h; sourceTree = "<group>"; };
+		1261753626B3219C003FBDB3 /* BrainTreePayPalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrainTreePayPalViewController.m; sourceTree = "<group>"; };
 		1261BCCF26A0D5B200D6251F /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1261BCD026A0D5B200D6251F /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1261BCD226A0DA8F00D6251F /* SettingsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 		127D5909269CC6BA00F43132 /* OrganizationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationCell.m; sourceTree = "<group>"; };
 		1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateWebKitViewController.h; sourceTree = "<group>"; };
 		1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateWebKitViewController.m; sourceTree = "<group>"; };
+		12AA98DB26B315F60026C8BF /* GiveWellCharities-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GiveWellCharities-Bridging-Header.h"; sourceTree = "<group>"; };
 		12C6830B269CD77100BA08BF /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		12C6830C269CD77100BA08BF /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		12C6830E269D0D0700BA08BF /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				12EC19AB26A74684004A4185 /* Map ViewControllers */,
 				127D58CC269CC4E300F43132 /* AppDelegate.h */,
 				127D58CD269CC4E300F43132 /* AppDelegate.m */,
+				1261753526B3219C003FBDB3 /* BrainTreePayPalViewController.h */,
+				1261753626B3219C003FBDB3 /* BrainTreePayPalViewController.m */,
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
@@ -209,6 +215,7 @@
 				127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */,
 				127D58DD269CC4E400F43132 /* Info.plist */,
 				127D58DE269CC4E400F43132 /* main.m */,
+				12AA98DB26B315F60026C8BF /* GiveWellCharities-Bridging-Header.h */,
 			);
 			path = GiveWellCharities;
 			sourceTree = "<group>";
@@ -370,6 +377,7 @@
 				TargetAttributes = {
 					127D58C8269CC4E300F43132 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					127D58E3269CC4E400F43132 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -578,6 +586,7 @@
 				1261BCE126A0EDDB00D6251F /* AddCardViewController.m in Sources */,
 				120831C5269FAABC00DFEB9C /* DonationCell.m in Sources */,
 				127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */,
+				1261753726B3219C003FBDB3 /* BrainTreePayPalViewController.m in Sources */,
 				1261BCD726A0E0D300D6251F /* AccountSettingsViewController.m in Sources */,
 				121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */,
 				1261BCDA26A0E0E400D6251F /* PaymentMethodsViewController.m in Sources */,
@@ -762,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
 				INFOPLIST_FILE = GiveWellCharities/Info.plist;
@@ -771,6 +781,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sophiajwang.GiveWellCharities;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiveWellCharities/GiveWellCharities-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -781,6 +794,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
 				INFOPLIST_FILE = GiveWellCharities/Info.plist;
@@ -790,6 +804,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sophiajwang.GiveWellCharities;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiveWellCharities/GiveWellCharities-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -7,6 +7,12 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <Braintree/BTAppContextSwitcher.h>
+//#import
+//#import "BTAppSwitch.h"
+
+
+@import Braintree;
 
 @import GoogleMaps; //import GoogleMaps SDK
 @import PayPalCheckout; //import PayPal Checkout
@@ -31,6 +37,8 @@
     
     //initialize GoogleMaps API Key
     [GMSServices provideAPIKey:@"AIzaSyCQOU0SUZBBkhEUuSL4VZVTG3XZU1lmvDA"];
+    
+    [BTAppContextSwitcher setReturnURLScheme:@"com.sophiajwang.GiveWellCharities.payments"];
     
 //    //initialize PayPalCheckout
 //    PPCheckoutConfig *config = [[PPCheckoutConfig alloc] initWithClientID:@"ClientID" returnUrl:@"returnURL" environment:PPCEnvironmentSandbox];
@@ -74,6 +82,23 @@
     // Called when the user discards a scene session.
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    
+    NSComparisonResult comparisonResult = [url.scheme localizedCaseInsensitiveCompare:@"com.sophiajwang.GiveWellCharities.payments"];
+    if (comparisonResult == NSOrderedSame){
+        return [BTAppContextSwitcher handleOpenURL:url];
+    } else {
+        return FALSE;
+    }
+    
+    //        NSComparisonResult comparisonResult = [context.URL.scheme localizedCaseInsensitiveCompare:@"com.sophiajwang.GiveWellCharities.payments"];
+    //        if (comparisonResult == NSOrderedSame){
+    //            [BTAppContextSwitcher handleOpenURLContext:context];
+    //        }
+    
+    
 }
 
 @end
