@@ -10,6 +10,9 @@
 #import "DonateViewController.h"
 #import "OrganizationMapViewController.h"
 
+@import BraintreeDropIn;
+@import Braintree;
+
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -112,13 +115,34 @@
 - (IBAction)didTapDonate:(id)sender {
     // manually segue to logged in view
 //    [self performSegueWithIdentifier:@"donateSegue" sender:nil];
-    [self performSegueWithIdentifier:@"donateWebKitSegue" sender:nil];
+    [self showDropIn:@"sandbox_5rzkvvbq_yhmkqgz24bmzjpqv"];
+
+//    [self performSegueWithIdentifier:@"donateWebKitSegue" sender:nil];
 
 }
 
 
 - (IBAction)didTapMap:(id)sender {
     [self performSegueWithIdentifier:@"organizationMapSegue" sender:nil];
+}
+
+- (void)showDropIn:(NSString *)clientTokenOrTokenizationKey {
+BTDropInRequest *request = [[BTDropInRequest alloc] init];
+BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:clientTokenOrTokenizationKey request:request handler:^(BTDropInController * _Nonnull controller, BTDropInResult * _Nullable result, NSError * _Nullable error) {
+
+    if (error != nil) {
+        NSLog(@"ERROR");
+    } else if (result.canceled) {
+        NSLog(@"CANCELLED");
+    } else {
+        // Use the BTDropInResult properties to update your UI
+        // result.paymentOptionType
+        // result.paymentMethod
+        // result.paymentIcon
+        // result.paymentDescription
+    }
+}];
+[self presentViewController:dropIn animated:YES completion:nil];
 }
 
 

@@ -8,8 +8,6 @@
 #import "BrainTreePayPalViewController.h"
 @import BraintreeDropIn;
 @import Braintree;
-//import BraintreeDropIn
-//import Braintree
 
 @interface BrainTreePayPalViewController ()
 
@@ -26,9 +24,7 @@
     
     [self showDropIn:@"sandbox_5rzkvvbq_yhmkqgz24bmzjpqv"];
 
-//    [self showDropIn(@"sandbox_5rzkvvbq_yhmkqgz24bmzjpqv")]
 }
-
 
 - (void)showDropIn:(NSString *)clientTokenOrTokenizationKey {
 BTDropInRequest *request = [[BTDropInRequest alloc] init];
@@ -48,28 +44,6 @@ BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:c
 }];
 [self presentViewController:dropIn animated:YES completion:nil];
 }
-
-//
-//func showDropIn(clientTokenOrTokenizationKey: String) {
-//    let request =  BTDropInRequest()
-//    let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
-//    { (controller, result, error) in
-//        if (error != nil) {
-//            print("ERROR")
-//        } else if (result?.isCancelled == true) {
-//            print("CANCELED")
-//        } else if let result = result {
-//            // Use the BTDropInResult properties to update your UI
-//            // result.paymentOptionType
-//            // result.paymentMethod
-//            // result.paymentIcon
-//            // result.paymentDescription
-//        }
-//        controller.dismiss(animated: true, completion: nil)
-//    }
-//    self.present(dropIn!, animated: true, completion: nil)
-//}
-
 
 /*
 #pragma mark - Navigation

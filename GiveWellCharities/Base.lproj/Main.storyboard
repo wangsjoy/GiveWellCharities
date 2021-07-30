@@ -1291,39 +1291,11 @@
                         <segue destination="hvT-0l-kbJ" kind="relationship" relationship="viewControllers" id="yxu-xE-cwL"/>
                         <segue destination="5Ok-Xg-lsb" kind="relationship" relationship="viewControllers" id="qif-w1-4Ky"/>
                         <segue destination="iJm-iV-wEd" kind="relationship" relationship="viewControllers" id="3Kw-4j-IFi"/>
-                        <segue destination="R7p-3u-V3s" kind="relationship" relationship="viewControllers" id="tti-Xa-bb1"/>
-                        <segue destination="tiC-6D-DSx" kind="relationship" relationship="viewControllers" id="Sfj-Cg-3uz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nta-NH-fui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19" y="834"/>
-        </scene>
-        <!--Pay Pal View Controller-->
-        <scene sceneID="S9V-eH-IwA">
-            <objects>
-                <viewController id="grq-Jd-Bcl" customClass="PayPalViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="htA-tr-KzX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LX-ch-EmD">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="PayPal"/>
-                                <connections>
-                                    <action selector="didTapPayPal:" destination="grq-Jd-Bcl" eventType="touchUpInside" id="ghX-Az-NkV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Dcu-1D-6Fd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="O8s-VF-NTh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tOu-yU-uxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1802.8985507246377" y="-145.3125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KGC-Zu-ara">
@@ -1397,70 +1369,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7J-dE-1TG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="2913.6160714285711"/>
-        </scene>
-        <!--Brain Tree Pay Pal View Controller-->
-        <scene sceneID="bBA-pE-5Fs">
-            <objects>
-                <viewController id="HkJ-rL-VIZ" customClass="BrainTreePayPalViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tyK-Zt-rEO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwk-y2-2Ws">
-                                <rect key="frame" x="126" y="433" width="162" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Braintree Paypal Button"/>
-                                <connections>
-                                    <action selector="onTap:" destination="HkJ-rL-VIZ" eventType="touchUpInside" id="ztC-Jz-EVR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fLp-xE-AmI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="GBh-oM-SeI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ev1-Lh-TyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1782.608695652174" y="-846.42857142857144"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="Z3A-EG-nXk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R7p-3u-V3s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="q1f-Pp-VDh"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hcK-Lb-1Xj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="grq-Jd-Bcl" kind="relationship" relationship="rootViewController" id="McI-sW-IZ9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eUt-JE-j51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="-145.3125"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="9I1-He-25U">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tiC-6D-DSx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="73D-HN-cFu"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2q4-Cu-wab">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="HkJ-rL-VIZ" kind="relationship" relationship="rootViewController" id="27W-4H-hty"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iTG-Xh-XOw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="872.46376811594212" y="-846.42857142857144"/>
         </scene>
     </scenes>
     <resources>
