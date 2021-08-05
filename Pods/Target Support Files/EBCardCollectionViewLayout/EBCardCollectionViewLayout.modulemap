@@ -1,0 +1,6 @@
+framework module EBCardCollectionViewLayout {
+  umbrella header "EBCardCollectionViewLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

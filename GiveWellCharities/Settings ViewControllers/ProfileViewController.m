@@ -36,6 +36,14 @@
     
     //load profile picture
     [self fetchProfilePicture];
+//    imageView.contentMode = UIViewContentMode.ScaleAspectFill;
+
+    self.profileView.contentMode = UIViewContentModeScaleAspectFill;
+    self.profileView.layer.masksToBounds = YES;
+    self.profileView.layer.cornerRadius = self.profileView.bounds.size.width/2;
+    
+//    circularImage.layer.masksToBounds = true
+//        circularImage.layer.cornerRadius = circularImage.bounds.width / 2
     
     //add gesture recognition to the imageView element
     UITapGestureRecognizer *fingerTap =

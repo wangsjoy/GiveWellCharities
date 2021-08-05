@@ -47,11 +47,13 @@ PODS:
     - Braintree/UnionPay (>= 5.4.2, ~> 5.4)
     - Braintree/Venmo (>= 5.4.2, ~> 5.4)
   - DateTools (2.0.0)
+  - EBCardCollectionViewLayout (0.2.0)
   - GoogleMaps (5.1.0):
     - GoogleMaps/Maps (= 5.1.0)
   - GoogleMaps/Base (5.1.0)
   - GoogleMaps/Maps (5.1.0):
     - GoogleMaps/Base
+  - GravitySliderFlowLayout (1.0)
   - MCSwipeTableViewCell (2.1.4)
   - Parse (1.19.2):
     - Parse/Core (= 1.19.2)
@@ -68,7 +70,9 @@ DEPENDENCIES:
   - Braintree/PaymentFlow
   - BraintreeDropIn
   - DateTools
+  - EBCardCollectionViewLayout (from `https://github.com/betzerra/EBCardCollectionViewLayout`)
   - GoogleMaps (= 5.1.0)
+  - GravitySliderFlowLayout
   - MCSwipeTableViewCell (~> 2.1.4)
   - Parse
   - Parse/UI
@@ -83,10 +87,20 @@ SPEC REPOS:
     - BraintreeDropIn
     - DateTools
     - GoogleMaps
+    - GravitySliderFlowLayout
     - MCSwipeTableViewCell
     - Parse
     - PayPalCheckout
     - VegaScrollFlowLayout
+
+EXTERNAL SOURCES:
+  EBCardCollectionViewLayout:
+    :git: https://github.com/betzerra/EBCardCollectionViewLayout
+
+CHECKOUT OPTIONS:
+  EBCardCollectionViewLayout:
+    :commit: dd547de4a861c323a39eb66f81db0d2e89c6601a
+    :git: https://github.com/betzerra/EBCardCollectionViewLayout
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -94,12 +108,14 @@ SPEC CHECKSUMS:
   Braintree: 618de4281549ef28ac10fc8c6c4ed68d931d995a
   BraintreeDropIn: d9c1c1b01f3f15a7a1c32ff33c9e8ed22b85357a
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  EBCardCollectionViewLayout: 29e4f47ad6883ddf8e5e16078c71fa1142098342
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  GravitySliderFlowLayout: bb9ae6a302b85821c9e0271c00533fae8091143b
   MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
   PayPalCheckout: 18508000103798cc332b699b1b3b9b160a6852c1
   VegaScrollFlowLayout: 9158061f29179147755f937c2b21693fc5dbbac3
 
-PODFILE CHECKSUM: 410373e99e6336055bc8ddfe5ac98dff0fc0cd42
+PODFILE CHECKSUM: 5c510f3b7b75efe4cf39291acd61051c0377a316
 
 COCOAPODS: 1.10.1

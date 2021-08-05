@@ -6,7 +6,6 @@
 //
 
 #import "OrganizationViewController.h"
-//#import "OrganizationCell.h"
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
@@ -21,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *arrayOfOrganizations;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property NSInteger swipeIndex;
 
 @end
 
@@ -37,12 +37,12 @@
     self.refreshControl = [[UIRefreshControl alloc] init]; //instantiate refreshControl
     [self.refreshControl addTarget:self action:@selector(fetchOrganizations) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0]; //so that the refresh icon doesn't hover over any cells
+
 }
 
 - (void)fetchOrganizations {
     //fetch organizations from parse databases
     PFQuery *query = [PFQuery queryWithClassName:@"Organization"];
-//    [query orderByDescending:@"createdAt"];
     [query orderByAscending:@"createdAt"];
 
 
@@ -73,28 +73,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"detailSegue"]){
-        NSLog(@"Entering Organization Details");
+    if ([segue.identifier isEqualToString:@"swipeSegue"]){
+        NSLog(@"Entering Organization Details through Swipe");
         DetailsViewController *detailsViewController = [segue destinationViewController];
-        UITableViewCell *tappedCell = sender; //sender is just table view cell that was tapped on
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell]; //grabs index path
-        PFObject *organization = self.arrayOfOrganizations[indexPath.row]; //right organization associated with right row
+        PFObject *organization = self.arrayOfOrganizations[self.swipeIndex]; //right organization associated with right row
         detailsViewController.organization = organization; //pass organization to detailsViewController
     }
-
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static NSString *CellIdentifier = @"Cell";
-    
     
     MCSwipeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MCSwipeCell"];
 
-//    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
     if (!cell) {
-//        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
         cell = [[MCSwipeCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MCSwipeCell"];
 
@@ -110,17 +101,8 @@
     }
 
     // Configuring the views and colors.
-    UIView *checkView = [self viewWithImageName:@"check"];
+    UIView *checkView = [self viewWithImageName:@"rsz_info_icon"];
     UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
-
-    UIView *crossView = [self viewWithImageName:@"cross"];
-    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-
-    UIView *clockView = [self viewWithImageName:@"clock"];
-    UIColor *yellowColor = [UIColor colorWithRed:254.0 / 255.0 green:217.0 / 255.0 blue:56.0 / 255.0 alpha:1.0];
-
-    UIView *listView = [self viewWithImageName:@"list"];
-    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
 
     // Setting the default inactive state color to the tableView background color.
     [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
@@ -133,6 +115,8 @@
     cell.synopsisLabel.text = mission;
     cell.summaryLabel.text = summary;
     
+    cell.tag = indexPath.row;
+    
     NSLog(@"Organization Found: %@", organization);
     
     //organization logo picture
@@ -142,25 +126,11 @@
     cell.logoView.image = nil;
     [cell.logoView setImageWithURL:logoURL];
     
-
-//    [cell.textLabel setText:@"Switch Mode Cell"];
-//    [cell.detailTextLabel setText:@"Swipe to switch"];
-
     // Adding gestures per state basis.
     [cell setSwipeGestureWithView:checkView color:greenColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"Checkmark\" cell");
-    }];
-
-    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState2 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"Cross\" cell");
-    }];
-
-    [cell setSwipeGestureWithView:clockView color:yellowColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"Clock\" cell");
-    }];
-
-    [cell setSwipeGestureWithView:listView color:brownColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState4 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"List\" cell");
+        NSLog(@"Did swipe \"Details\" cell");
+        self.swipeIndex = cell.tag;
+        [self performSegueWithIdentifier:@"swipeSegue" sender:nil];
     }];
 
     return cell;
@@ -168,6 +138,7 @@
 
 - (UIView *)viewWithImageName:(NSString *)imageName {
     UIImage *image = [UIImage imageNamed:imageName];
+        
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.contentMode = UIViewContentModeCenter;
     return imageView;

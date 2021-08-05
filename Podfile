@@ -17,6 +17,8 @@ pod 'BraintreeDropIn'
 pod 'Braintree/PaymentFlow'
 pod 'VegaScrollFlowLayout'
 pod 'MCSwipeTableViewCell', '~> 2.1.4'
+pod 'GravitySliderFlowLayout'
+pod 'EBCardCollectionViewLayout', :git => 'https://github.com/betzerra/EBCardCollectionViewLayout'
 
   target 'GiveWellCharitiesTests' do
     inherit! :search_paths
