@@ -41,7 +41,7 @@
             } else {
                 SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserLoginViewController"];
                 myDelegate.window.rootViewController = loginViewController;
                 NSLog(@"Successfully logged out user!");//dismiss last view controller
             }

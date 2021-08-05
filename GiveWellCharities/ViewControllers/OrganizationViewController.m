@@ -13,6 +13,8 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 
+@import MCSwipeTableViewCell;
+
 @interface OrganizationViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *arrayOfOrganizations;
@@ -82,6 +84,7 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+        
     OrganizationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrganizationCell"];
     PFObject *organization = self.arrayOfOrganizations[indexPath.row];
     NSString *organizationName = organization[@"organizationName"];

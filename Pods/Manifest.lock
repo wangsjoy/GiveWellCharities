@@ -52,6 +52,7 @@ PODS:
   - GoogleMaps/Base (5.1.0)
   - GoogleMaps/Maps (5.1.0):
     - GoogleMaps/Base
+  - MCSwipeTableViewCell (2.1.4)
   - Parse (1.19.2):
     - Parse/Core (= 1.19.2)
   - Parse/Core (1.19.2):
@@ -59,6 +60,7 @@ PODS:
   - Parse/UI (1.19.2):
     - Parse/Core
   - PayPalCheckout (0.55.0)
+  - VegaScrollFlowLayout (1.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -67,9 +69,11 @@ DEPENDENCIES:
   - BraintreeDropIn
   - DateTools
   - GoogleMaps (= 5.1.0)
+  - MCSwipeTableViewCell (~> 2.1.4)
   - Parse
   - Parse/UI
   - PayPalCheckout
+  - VegaScrollFlowLayout
 
 SPEC REPOS:
   trunk:
@@ -79,8 +83,10 @@ SPEC REPOS:
     - BraintreeDropIn
     - DateTools
     - GoogleMaps
+    - MCSwipeTableViewCell
     - Parse
     - PayPalCheckout
+    - VegaScrollFlowLayout
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -89,9 +95,11 @@ SPEC CHECKSUMS:
   BraintreeDropIn: d9c1c1b01f3f15a7a1c32ff33c9e8ed22b85357a
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
   PayPalCheckout: 18508000103798cc332b699b1b3b9b160a6852c1
+  VegaScrollFlowLayout: 9158061f29179147755f937c2b21693fc5dbbac3
 
-PODFILE CHECKSUM: b5e8d1663c36f145330d55d3b6b4ec91da935c71
+PODFILE CHECKSUM: 410373e99e6336055bc8ddfe5ac98dff0fc0cd42
 
 COCOAPODS: 1.10.1

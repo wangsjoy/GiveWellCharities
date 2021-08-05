@@ -15,6 +15,8 @@ pod 'Braintree'
 pod 'PayPalCheckout'
 pod 'BraintreeDropIn'
 pod 'Braintree/PaymentFlow'
+pod 'VegaScrollFlowLayout'
+pod 'MCSwipeTableViewCell', '~> 2.1.4'
 
   target 'GiveWellCharitiesTests' do
     inherit! :search_paths
