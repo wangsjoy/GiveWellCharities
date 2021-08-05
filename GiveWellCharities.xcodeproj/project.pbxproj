@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0875B6AEFDDAD48E5748FF55 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */; };
 		120831C5269FAABC00DFEB9C /* DonationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 120831C4269FAABC00DFEB9C /* DonationCell.m */; };
+		120B2A7826BC06B900BF94D1 /* MCOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120B2A7726BC06B900BF94D1 /* MCOrganizationViewController.m */; };
+		120B2A7B26BC071700BF94D1 /* MCSwipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 120B2A7A26BC071700BF94D1 /* MCSwipeCell.m */; };
 		121C31C726A5F5760024BB48 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121C31C626A5F5760024BB48 /* MapViewController.m */; };
 		121C31C926A5FAC90024BB48 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31C826A5FAC90024BB48 /* MapKit.framework */; };
 		121C31CB26A6006F0024BB48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31CA26A6006F0024BB48 /* CoreLocation.framework */; };
@@ -65,6 +67,10 @@
 		0CA0B63DA77499B508EA0F24 /* Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig"; path = "Target Support Files/Pods-GiveWellCharities-GiveWellCharitiesUITests/Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		120831C3269FAABC00DFEB9C /* DonationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonationCell.h; sourceTree = "<group>"; };
 		120831C4269FAABC00DFEB9C /* DonationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonationCell.m; sourceTree = "<group>"; };
+		120B2A7626BC06B900BF94D1 /* MCOrganizationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCOrganizationViewController.h; sourceTree = "<group>"; };
+		120B2A7726BC06B900BF94D1 /* MCOrganizationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCOrganizationViewController.m; sourceTree = "<group>"; };
+		120B2A7926BC071700BF94D1 /* MCSwipeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSwipeCell.h; sourceTree = "<group>"; };
+		120B2A7A26BC071700BF94D1 /* MCSwipeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSwipeCell.m; sourceTree = "<group>"; };
 		121C31C526A5F5760024BB48 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		121C31C626A5F5760024BB48 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		121C31C826A5FAC90024BB48 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -235,6 +241,8 @@
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
+				120B2A7626BC06B900BF94D1 /* MCOrganizationViewController.h */,
+				120B2A7726BC06B900BF94D1 /* MCOrganizationViewController.m */,
 				1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */,
 				1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */,
 				123B996C26A9EB430068D43D /* PayPalViewController.h */,
@@ -292,6 +300,8 @@
 				1261BCD326A0DA8F00D6251F /* SettingsCell.m */,
 				1261BCDC26A0EABE00D6251F /* BankingCell.h */,
 				1261BCDD26A0EABE00D6251F /* BankingCell.m */,
+				120B2A7926BC071700BF94D1 /* MCSwipeCell.h */,
+				120B2A7A26BC071700BF94D1 /* MCSwipeCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -625,10 +635,12 @@
 				1261BCD126A0D5B200D6251F /* SettingsViewController.m in Sources */,
 				127D5907269CC66400F43132 /* ProfileViewController.m in Sources */,
 				12EC19AE26A747A0004A4185 /* OrganizationMapViewController.m in Sources */,
+				120B2A7826BC06B900BF94D1 /* MCOrganizationViewController.m in Sources */,
 				12D0B42826BBC9F000179709 /* PageViewController.m in Sources */,
 				12C68310269D0D0700BA08BF /* DetailsViewController.m in Sources */,
 				121C31C726A5F5760024BB48 /* MapViewController.m in Sources */,
 				12D0B42E26BBCA5C00179709 /* LoginSignupViewController.m in Sources */,
+				120B2A7B26BC071700BF94D1 /* MCSwipeCell.m in Sources */,
 				1261BCDE26A0EABE00D6251F /* BankingCell.m in Sources */,
 				1290F47E26B08C840046E0E8 /* DonateWebKitViewController.m in Sources */,
 			);
