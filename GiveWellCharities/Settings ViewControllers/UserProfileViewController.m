@@ -104,22 +104,23 @@
 
 
 - (IBAction)didTapConfetti:(id)sender {
+    [self startConfetti];
+}
+
+- (void)startConfetti{
     NSLog(@"Start Confetti Emitter");
     //confetti emitter
-    self.confettiEmitter.emitterPosition = CGPointMake(320, 320);
+    CAEmitterLayer *confettiEmitter = [[CAEmitterLayer alloc] init];
+    confettiEmitter.emitterPosition = CGPointMake(0, 0);
     CAEmitterCell *emitterCell = [[CAEmitterCell alloc] init];
     emitterCell.birthRate = 100;
-    emitterCell.lifetime = 10;
+    emitterCell.lifetime = 5;
     emitterCell.velocity = 100;
-    emitterCell.scale = 1.0;
+    emitterCell.scale = 0.01;
     emitterCell.emissionRange = 3.14 * 2.0;
-    UIImage *emitterObject = [UIImage imageNamed:@"GreenHand"];
-//    UIImage *emitterObject = [UIImage systemImageNamed:@"cloud.fill"];
-    emitterCell.contents = emitterObject;
-//    NSMutableArray *emitterContents = [[NSMutableArray alloc] initWithObjects:emitterCell, nil];
-    self.confettiEmitter.emitterCells = [NSArray arrayWithObject:emitterCell];
-    [self.view.layer addSublayer:self.confettiEmitter];
-//    [self.view.layer addSublayer:self.confettiEmitter];
+    emitterCell.contents = (id) [[UIImage imageNamed:@"green_confetti"] CGImage];
+    confettiEmitter.emitterCells = [NSArray arrayWithObject:emitterCell];
+    [self.view.layer addSublayer:confettiEmitter];
 }
 
 
