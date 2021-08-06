@@ -62,6 +62,7 @@ PODS:
   - Parse/UI (1.19.2):
     - Parse/Core
   - PayPalCheckout (0.55.0)
+  - SAConfettiView (0.1.8)
   - VegaScrollFlowLayout (1.1)
 
 DEPENDENCIES:
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Parse
   - Parse/UI
   - PayPalCheckout
+  - SAConfettiView
   - VegaScrollFlowLayout
 
 SPEC REPOS:
@@ -91,6 +93,7 @@ SPEC REPOS:
     - MCSwipeTableViewCell
     - Parse
     - PayPalCheckout
+    - SAConfettiView
     - VegaScrollFlowLayout
 
 EXTERNAL SOURCES:
@@ -114,8 +117,9 @@ SPEC CHECKSUMS:
   MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
   PayPalCheckout: 18508000103798cc332b699b1b3b9b160a6852c1
+  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   VegaScrollFlowLayout: 9158061f29179147755f937c2b21693fc5dbbac3
 
-PODFILE CHECKSUM: 5c510f3b7b75efe4cf39291acd61051c0377a316
+PODFILE CHECKSUM: 4310c00f1c8d4052bf70c3bae5fc1f8d63ad9062
 
 COCOAPODS: 1.10.1

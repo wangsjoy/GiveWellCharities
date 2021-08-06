@@ -12,20 +12,29 @@
 #import "UserDonationCell.h"
 #import <EBCardCollectionViewLayout/EBCardCollectionViewLayout.h>
 
+#import "GiveWellCharities-Swift.h"
+
 @import Parse;
 @import EBCardCollectionViewLayout;
 
-//<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@interface UserProfileViewController ()
+@interface UserProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) NSMutableArray *arrayOfPayments;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) PFUser *user;
 @property (weak, nonatomic) IBOutlet PFImageView *profileView;
 @property (nonatomic, strong) NSMutableArray *arrayOfPaymentDictionaries;
+@property (nonatomic, strong) NSMutableArray *arrayOfMetricStrings;
+@property (nonatomic, strong) NSMutableArray *arrayOfOrganizationStrings;
 @property (weak, nonatomic) IBOutlet UICollectionView *donationsCollectionView;
-
+@property (weak, nonatomic) IBOutlet UILabel *metricLabel;
+@property (weak, nonatomic) IBOutlet UILabel *organizationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confettiButton;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UIView *donationCountView;
+@property (weak, nonatomic) IBOutlet UILabel *transactionCountLabel;
+@property(nonatomic, weak) CAEmitterLayer *confettiEmitter;
 @end
 
 @implementation UserProfileViewController
@@ -34,8 +43,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.user = [PFUser currentUser];
+    self.donationsCollectionView.dataSource = self;
+    self.donationsCollectionView.delegate = self;
     
-    self.nameLabel.text = self.user.username;
+    NSString *atSymbol = @"@";
+    NSString *handle = [atSymbol stringByAppendingString:self.user.username];
+    self.usernameLabel.text = handle;
     
     //find user first and last name, if unavailable, use username
     NSString *firstName = self.user[@"firstName"];
@@ -67,22 +80,114 @@
     //fetch user transactions
     [self fetchTransactions];
     
-    //configure Collection View
-//    self.donationsCollectionView.dataSource = self;
-//    self.donationsCollectionView.delegate = self;
-    
     //  The bigger the offset, the more you see on previous / next cards.
     self.donationsCollectionView.dataSource = self;
     self.layoutType = EBCardCollectionLayoutHorizontal;
-    self.title = @"Horizontal Scrolling";
     
-    UIOffset horizontalOffset = UIOffsetMake(40, 10);
+    UIOffset horizontalOffset = UIOffsetMake(100, 10);
     
     EBCardCollectionViewLayout *layout = [[EBCardCollectionViewLayout alloc] init];
     [layout setOffset:horizontalOffset];
     [layout setLayoutType:EBCardCollectionLayoutHorizontal];
     self.donationsCollectionView.collectionViewLayout = layout;
+    
+    //round the edges of the donation count view
+    [self.donationCountView.layer setCornerRadius:8];
+    [self.donationCountView.layer setMasksToBounds:YES];
+    [self.donationCountView.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [self.donationCountView.layer setBorderWidth:1.0];
 }
+
+- (IBAction)didTapSettings:(id)sender {
+    [self performSegueWithIdentifier:@"userSettingsSegue" sender:nil];
+}
+
+
+- (IBAction)didTapConfetti:(id)sender {
+    NSLog(@"Start Confetti Emitter");
+    //confetti emitter
+    self.confettiEmitter.emitterPosition = CGPointMake(320, 320);
+    CAEmitterCell *emitterCell = [[CAEmitterCell alloc] init];
+    emitterCell.birthRate = 100;
+    emitterCell.lifetime = 10;
+    emitterCell.velocity = 100;
+    emitterCell.scale = 1.0;
+    emitterCell.emissionRange = 3.14 * 2.0;
+    UIImage *emitterObject = [UIImage imageNamed:@"GreenHand"];
+//    UIImage *emitterObject = [UIImage systemImageNamed:@"cloud.fill"];
+    emitterCell.contents = emitterObject;
+//    NSMutableArray *emitterContents = [[NSMutableArray alloc] initWithObjects:emitterCell, nil];
+    self.confettiEmitter.emitterCells = [NSArray arrayWithObject:emitterCell];
+    [self.view.layer addSublayer:self.confettiEmitter];
+//    [self.view.layer addSublayer:self.confettiEmitter];
+}
+
+
+- (UserDonationCell *)configureUserDonationCell:(UserDonationCell *)cell index:(NSIndexPath *)indexPath{
+        
+    PFObject *payment = self.arrayOfPayments[indexPath.row];
+
+    NSLog(@"Payment: %@", payment);
+
+//     cell.metricImage.file = payment[@"metricImage"];
+    cell.metricImage.file = payment[@"metricWhiteImage"];
+    [cell.metricImage loadInBackground];
+    
+    [cell.timeLabel.layer setCornerRadius:8];
+    [cell.timeLabel setClipsToBounds:TRUE];
+    [cell.timeLabel setTextColor:[UIColor whiteColor]];
+    [cell.timeLabel.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+    [cell.timeLabel.layer setBorderWidth:1.0];
+    
+    //timestamp label
+    NSDate *createdAt = payment.createdAt;
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd/MM/yyyy";
+    NSString *dateString = [dateFormatter stringFromDate:createdAt];
+    cell.timeLabel.text = createdAt.timeAgoSinceNow;
+    
+    self.metricLabel.text = self.arrayOfMetricStrings[indexPath.row];
+    self.organizationLabel.text = self.arrayOfOrganizationStrings[indexPath.row];
+    
+    //cell gradient
+    [cell setBackgroundColor:[UIColor clearColor]];
+
+    CAGradientLayer *grad = [CAGradientLayer layer];
+    grad.frame = cell.bounds;
+    grad.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:51.0/255.0 green:204.0/255.0 blue:51.0/255.0 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:235.0/255.0 green:250.0/255.0 blue:235.0/255.0 alpha:1.0] CGColor], nil];
+    
+    //rounded corners
+    [grad setCornerRadius:30];
+    [grad setMasksToBounds:YES];
+
+    [cell setBackgroundView:[[UIView alloc] init]];
+    [cell.backgroundView.layer insertSublayer:grad atIndex:0];
+
+    CAGradientLayer *selectedGrad = [CAGradientLayer layer];
+    selectedGrad.frame = cell.bounds;
+    selectedGrad.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+
+    [cell setSelectedBackgroundView:[[UIView alloc] init]];
+    [cell.selectedBackgroundView.layer insertSublayer:selectedGrad atIndex:0];
+    
+    //rounded corners
+    cell.contentView.layer.cornerRadius = 30;
+    cell.contentView.layer.masksToBounds = YES;
+    
+    return cell;
+    
+}
+
+- (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+//    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner setScanLocation:0]; // bypass '#' character
+
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
 
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -90,11 +195,88 @@
     self.donationsCollectionView.contentOffset = CGPointMake(0, 0);
 }
 
+
+
+- (void)fetchTransactions{
+    //fetch all donation transactions
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Payment"];
+    [query whereKey:@"author" equalTo:self.user];
+    [query orderByDescending:@"createdAt"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *payments, NSError *error) {
+        if (payments != nil) {
+            // do something with the array of object returned by the call
+            NSLog(@"All Payments retrieved");
+            self.arrayOfPayments = payments;
+            
+            //create array of metric strings (e.g. "392 children vaccinated")
+            NSMutableArray *metricStringArray = [[NSMutableArray alloc] init];
+            //create array of organization names (e.g. "Helen Keller International")
+            NSMutableArray *organizationStringArray = [[NSMutableArray alloc] init];
+
+            for (PFObject *payment in payments){
+                NSLog(@"%@", payment);
+                NSString *metricQuantity = payment[@"metricQuantity"];
+                NSString *metricStringLabel = payment[@"metricString"];
+                NSString *metricSpace = [metricQuantity stringByAppendingString:@" "];
+                NSString *metricString = [metricSpace stringByAppendingString:metricStringLabel];
+                [metricStringArray addObject:metricString];
+                [organizationStringArray addObject:payment[@"organizationName"]];
+            }
+            
+            self.arrayOfMetricStrings = metricStringArray;
+            self.arrayOfOrganizationStrings = organizationStringArray;
+            
+            NSInteger transactionCount = self.arrayOfPayments.count;
+            
+            NSString *countString = [NSString stringWithFormat:@"%ld", (long)transactionCount];
+            self.transactionCountLabel.text = countString;
+            
+            [self.donationsCollectionView reloadData];
+
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (BOOL)shouldAutorotate {
+    [self.donationsCollectionView.collectionViewLayout invalidateLayout];
+    
+    BOOL retVal = YES;
+    return retVal;
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    UserDonationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UserDonationCell" forIndexPath:indexPath];
+    UserDonationCell *formattedCell = [self configureUserDonationCell:cell index:indexPath];
+    return formattedCell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.arrayOfPayments.count;
+}
+
 - (void)fetchProfilePicture{
     //get profile picture
     PFUser *user = [PFUser currentUser];
     self.profileView.file = user[@"profilePicture"];
     [self.profileView loadInBackground];
+    
+    self.profileView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (void)onProfilePhotoTap:(UITapGestureRecognizer *)recognizer
@@ -199,93 +381,6 @@
     UIGraphicsEndImageContext();
     
     return newImage;
-}
-
-- (void)fetchTransactions{
-    //fetch all donation transactions
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Payment"];
-    [query whereKey:@"author" equalTo:self.user];
-    [query orderByDescending:@"createdAt"];
-
-    // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *payments, NSError *error) {
-        if (payments != nil) {
-            // do something with the array of object returned by the call
-            NSLog(@"All Payments retrieved");
-            for (PFObject *payment in payments){
-                NSLog(@"%@", payment);
-            }
-            self.arrayOfPayments = payments;
-            [self.donationsCollectionView reloadData];
-
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-}
-
-- (BOOL)shouldAutorotate {
-    [self.donationsCollectionView.collectionViewLayout invalidateLayout];
-    
-    BOOL retVal = YES;
-    return retVal;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
-    UserDonationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UserDonationCell" forIndexPath:indexPath];
-    PFObject *payment = self.arrayOfPayments[indexPath.row];
-
-    NSLog(@"Payment: %@", payment);
-    
-//    DonationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DonationCell"];
-//    PFObject *payment = self.arrayOfPayments[indexPath.row];
-     //populate cell labels
-     cell.organizationLabel.text = payment[@"organizationName"];
-    
-    //create string for metric (e.g. "392 children vaccinated")
-    NSString *metricQuantity = payment[@"metricQuantity"];
-    NSString *metricStringLabel = payment[@"metricString"];
-    NSString *metricSpace = [metricQuantity stringByAppendingString:@" "];
-    NSString *metricString = [metricSpace stringByAppendingString:metricStringLabel];
-    cell.metricQuantityLabel.text = metricString;
-//     cell.metricStringLabel.text = payment[@"metricString"];
-//     cell.metricQuantityLabel.text = payment[@"metricQuantity"];
-     cell.metricImage.file = payment[@"metricImage"];
-     [cell.metricImage loadInBackground];
-     
-     //timestamp label
-     NSDate *createdAt = payment.createdAt;
-     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
-     dateFormatter.dateFormat = @"dd/MM/yyyy";
-     NSString *dateString = [dateFormatter stringFromDate:createdAt];
-     cell.timeLabel.text = createdAt.timeAgoSinceNow;
-     
-    return cell;
-    
-    
-    
-//    DemoCollectionViewCell *retVal = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell"
-//                                                                              forIndexPath:indexPath];
-//    retVal.person = _people[indexPath.row];
-//    return retVal;
-    
-    
-}
-
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.arrayOfPayments.count;
 }
 
 @end

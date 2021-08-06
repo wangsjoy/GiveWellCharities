@@ -228,8 +228,9 @@
     transaction[@"organizationName"] = self.organization[@"organizationName"];
     transaction[@"metricString"] = self.impactMetricLabel.text;
     transaction[@"metricQuantity"] = self.impactQuantityLabel.text; //string (not number)
-    transaction[@"metricImage"] = self.organization[@"metricImage"];
-    
+//    transaction[@"metricImage"] = self.organization[@"metricImage"];
+    transaction[@"metricImage"] = self.organization[@"metricWhiteImage"];
+
     //set location latitude and longitude
     transaction[@"longitude"] = self.longitude;
     transaction[@"latitude"] = self.latitude;

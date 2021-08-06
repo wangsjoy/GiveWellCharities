@@ -343,7 +343,6 @@ every six months in order to ensure an optimal experience for customers with
 the most up-to-date feature set.
 
 
-
 ## VegaScrollFlowLayout
 
 MIT License

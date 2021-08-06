@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserDonationCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet PFImageView *metricImage;
-@property (weak, nonatomic) IBOutlet UILabel *metricQuantityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *organizationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 

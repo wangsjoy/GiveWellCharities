@@ -14,8 +14,6 @@
 		121C31C926A5FAC90024BB48 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31C826A5FAC90024BB48 /* MapKit.framework */; };
 		121C31CB26A6006F0024BB48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31CA26A6006F0024BB48 /* CoreLocation.framework */; };
 		121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */; };
-		123B996E26A9EB430068D43D /* PayPalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 123B996D26A9EB430068D43D /* PayPalViewController.m */; };
-		1261753726B3219C003FBDB3 /* BrainTreePayPalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261753626B3219C003FBDB3 /* BrainTreePayPalViewController.m */; };
 		1261BCD126A0D5B200D6251F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD026A0D5B200D6251F /* SettingsViewController.m */; };
 		1261BCD426A0DA8F00D6251F /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD326A0DA8F00D6251F /* SettingsCell.m */; };
 		1261BCD726A0E0D300D6251F /* AccountSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1261BCD626A0E0D300D6251F /* AccountSettingsViewController.m */; };
@@ -42,6 +40,7 @@
 		12D0B43126BBEE9A00179709 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D0B43026BBEE9A00179709 /* UserLoginViewController.m */; };
 		12D0B43426BBEEA800179709 /* UserSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D0B43326BBEEA800179709 /* UserSignUpViewController.m */; };
 		12D1C03C26BC5B2B004BAFD6 /* UserDonationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D1C03B26BC5B2B004BAFD6 /* UserDonationCell.m */; };
+		12D1C03E26BC8D51004BAFD6 /* GravityDonationFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1C03D26BC8D51004BAFD6 /* GravityDonationFlowLayout.swift */; };
 		12EC19AE26A747A0004A4185 /* OrganizationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EC19AD26A747A0004A4185 /* OrganizationMapViewController.m */; };
 		9222A11D01165D5793A681E1 /* Pods_GiveWellCharities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5DEFCB628F7EA8AABBC231 /* Pods_GiveWellCharities.framework */; };
 		F20175719996794F5A2CC4CE /* Pods_GiveWellCharitiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B185D59C6F78652C8F50ADF /* Pods_GiveWellCharitiesTests.framework */; };
@@ -76,10 +75,6 @@
 		121C31CA26A6006F0024BB48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		121F3BAD269E3E5D00CA1D38 /* DonateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateViewController.h; sourceTree = "<group>"; };
 		121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateViewController.m; sourceTree = "<group>"; };
-		123B996C26A9EB430068D43D /* PayPalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalViewController.h; sourceTree = "<group>"; };
-		123B996D26A9EB430068D43D /* PayPalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayPalViewController.m; sourceTree = "<group>"; };
-		1261753526B3219C003FBDB3 /* BrainTreePayPalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrainTreePayPalViewController.h; sourceTree = "<group>"; };
-		1261753626B3219C003FBDB3 /* BrainTreePayPalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrainTreePayPalViewController.m; sourceTree = "<group>"; };
 		1261BCCF26A0D5B200D6251F /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1261BCD026A0D5B200D6251F /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1261BCD226A0DA8F00D6251F /* SettingsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
@@ -133,6 +128,7 @@
 		12D0B43326BBEEA800179709 /* UserSignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSignUpViewController.m; sourceTree = "<group>"; };
 		12D1C03A26BC5B2B004BAFD6 /* UserDonationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDonationCell.h; sourceTree = "<group>"; };
 		12D1C03B26BC5B2B004BAFD6 /* UserDonationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDonationCell.m; sourceTree = "<group>"; };
+		12D1C03D26BC8D51004BAFD6 /* GravityDonationFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GravityDonationFlowLayout.swift; path = Cells/GravityDonationFlowLayout.swift; sourceTree = "<group>"; };
 		12EC19AC26A747A0004A4185 /* OrganizationMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationMapViewController.h; sourceTree = "<group>"; };
 		12EC19AD26A747A0004A4185 /* OrganizationMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationMapViewController.m; sourceTree = "<group>"; };
 		156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiveWellCharitiesTests.debug.xcconfig"; path = "Target Support Files/Pods-GiveWellCharitiesTests/Pods-GiveWellCharitiesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +228,7 @@
 		127D58CB269CC4E300F43132 /* GiveWellCharities */ = {
 			isa = PBXGroup;
 			children = (
+				12D1C03D26BC8D51004BAFD6 /* GravityDonationFlowLayout.swift */,
 				127D590B269CC6BF00F43132 /* Cells */,
 				120B2A6126BBFDF300BF94D1 /* LoginSignUpViewControllers */,
 				127D5901269CC63D00F43132 /* ViewControllers */,
@@ -239,8 +236,6 @@
 				12EC19AB26A74684004A4185 /* Map ViewControllers */,
 				127D58CC269CC4E300F43132 /* AppDelegate.h */,
 				127D58CD269CC4E300F43132 /* AppDelegate.m */,
-				1261753526B3219C003FBDB3 /* BrainTreePayPalViewController.h */,
-				1261753626B3219C003FBDB3 /* BrainTreePayPalViewController.m */,
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
@@ -250,8 +245,6 @@
 				127C219D26BC1DC700D594E4 /* UserProfileViewController.m */,
 				1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */,
 				1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */,
-				123B996C26A9EB430068D43D /* PayPalViewController.h */,
-				123B996D26A9EB430068D43D /* PayPalViewController.m */,
 				127D58D8269CC4E400F43132 /* Assets.xcassets */,
 				127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */,
 				127D58DD269CC4E400F43132 /* Info.plist */,
@@ -627,12 +620,11 @@
 				1261BCD426A0DA8F00D6251F /* SettingsCell.m in Sources */,
 				12D0B43126BBEE9A00179709 /* UserLoginViewController.m in Sources */,
 				127D58DF269CC4E400F43132 /* main.m in Sources */,
-				123B996E26A9EB430068D43D /* PayPalViewController.m in Sources */,
 				12D0B43426BBEEA800179709 /* UserSignUpViewController.m in Sources */,
 				1261BCE126A0EDDB00D6251F /* AddCardViewController.m in Sources */,
 				120831C5269FAABC00DFEB9C /* DonationCell.m in Sources */,
 				127D58D1269CC4E300F43132 /* SceneDelegate.m in Sources */,
-				1261753726B3219C003FBDB3 /* BrainTreePayPalViewController.m in Sources */,
+				12D1C03E26BC8D51004BAFD6 /* GravityDonationFlowLayout.swift in Sources */,
 				1261BCD726A0E0D300D6251F /* AccountSettingsViewController.m in Sources */,
 				121F3BAF269E3E5D00CA1D38 /* DonateViewController.m in Sources */,
 				1261BCDA26A0E0E400D6251F /* PaymentMethodsViewController.m in Sources */,
@@ -864,6 +856,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 156909444B990DA317A6051F /* Pods-GiveWellCharitiesTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
@@ -885,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3D40A09AFCC8AFC26C9F1D0 /* Pods-GiveWellCharitiesTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
@@ -906,6 +900,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D1D73CC1C1F64ECCBF9DB9E /* Pods-GiveWellCharities-GiveWellCharitiesUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
 				INFOPLIST_FILE = GiveWellCharitiesUITests/Info.plist;
@@ -925,6 +920,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CA0B63DA77499B508EA0F24 /* Pods-GiveWellCharities-GiveWellCharitiesUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69CN2ZV33U;
 				INFOPLIST_FILE = GiveWellCharitiesUITests/Info.plist;
