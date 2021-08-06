@@ -11,6 +11,7 @@
 #import "DateTools.h"
 #import "UserDonationCell.h"
 #import <EBCardCollectionViewLayout/EBCardCollectionViewLayout.h>
+#import "UIImageView+AFNetworking.h"
 
 #import "GiveWellCharities-Swift.h"
 
@@ -35,6 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIView *donationCountView;
 @property (weak, nonatomic) IBOutlet UILabel *transactionCountLabel;
 @property(nonatomic, weak) CAEmitterLayer *confettiEmitter;
+@property NSString *confettiURLString;
+@property UIImage *confettiImage;
 @end
 
 @implementation UserProfileViewController
@@ -109,20 +112,75 @@
 
 - (void)startConfetti{
     NSLog(@"Start Confetti Emitter");
-    //confetti emitter
-    CAEmitterLayer *confettiEmitter = [[CAEmitterLayer alloc] init];
-    confettiEmitter.emitterPosition = CGPointMake(0, 0);
-    CAEmitterCell *emitterCell = [[CAEmitterCell alloc] init];
-    emitterCell.birthRate = 100;
-    emitterCell.lifetime = 5;
-    emitterCell.velocity = 100;
-    emitterCell.scale = 0.01;
-    emitterCell.emissionRange = 3.14 * 2.0;
-    emitterCell.contents = (id) [[UIImage imageNamed:@"green_confetti"] CGImage];
-    confettiEmitter.emitterCells = [NSArray arrayWithObject:emitterCell];
-    [self.view.layer addSublayer:confettiEmitter];
+    
+    PFFileObject *emitterImageFile = self.arrayOfPayments[self.confettiButton.tag][@"metricWhiteImage"];
+    NSString *organizationName = self.arrayOfPayments[self.confettiButton.tag][@"organizationName"];
+    NSLog(@"Current Organization for Confetti: %@", organizationName);
+    NSString *emitterImageURL = emitterImageFile.url;
+    self.confettiURLString = emitterImageURL;
+    [self performSelectorInBackground:@selector(loadImage) withObject:nil];
+    
 }
 
+- (void)loadImage{
+   NSURL * url = [NSURL URLWithString:self.confettiURLString];
+   NSData * data = [NSData dataWithContentsOfURL:url];
+   UIImage * image = [UIImage imageWithData:data];
+   if (image)
+   {
+       NSLog(@"Successfully created image");
+       self.confettiImage = image;
+       CAEmitterLayer *confettiEmitter = [[CAEmitterLayer alloc] init];
+       confettiEmitter.emitterPosition = CGPointMake(0, 0);
+       CAEmitterCell *emitterCell = [[CAEmitterCell alloc] init];
+       emitterCell.birthRate = 100;
+       emitterCell.lifetime = 5;
+       emitterCell.velocity = 100;
+       emitterCell.scale = 0.5;
+       emitterCell.emissionRange = 3.14 * 2.0;
+       emitterCell.contents = (id) [self.confettiImage CGImage];
+       confettiEmitter.emitterCells = [NSArray arrayWithObject:emitterCell];
+       [self.view.layer addSublayer:confettiEmitter];
+       NSTimer *t = [NSTimer scheduledTimerWithTimeInterval: 2.0
+                             target: self
+                             selector:@selector(onTick:)
+                             userInfo: nil repeats:NO];
+       NSLog(@"Stopper called");
+   }
+   else
+   {
+       NSLog(@"Failed to create image");
+       self.confettiImage = [UIImage imageNamed:@"green_confetti"];
+       CAEmitterLayer *confettiEmitter = [[CAEmitterLayer alloc] init];
+       confettiEmitter.emitterPosition = CGPointMake(0, 0);
+       CAEmitterCell *emitterCell = [[CAEmitterCell alloc] init];
+       emitterCell.birthRate = 100;
+       emitterCell.lifetime = 5;
+       emitterCell.velocity = 100;
+       emitterCell.scale = 0.01;
+       emitterCell.emissionRange = 3.14 * 2.0;
+       emitterCell.contents = (id) [self.confettiImage CGImage];
+       confettiEmitter.emitterCells = [NSArray arrayWithObject:emitterCell];
+       [self.view.layer addSublayer:confettiEmitter];
+//       [NSTimer scheduledTimerWithTimeInterval:2.0
+//           target:self
+//           selector:@selector(stopEmitter)
+//           userInfo:nil
+//           repeats:NO];
+//       [self performSelector:@selector(stopEmitter) withObject:nil afterDelay:2.0];
+       NSTimer *t = [NSTimer scheduledTimerWithTimeInterval: 2.0
+                             target: self
+                             selector:@selector(onTick:)
+                             userInfo: nil repeats:NO];
+       NSLog(@"Stopper called");
+   }
+}
+
+-(void)onTick:(NSTimer *)timer {
+   //do smth
+    NSLog(@"Stopped Confetti");
+//    _confettiEmitter.birthRate = 0;
+}
 
 - (UserDonationCell *)configureUserDonationCell:(UserDonationCell *)cell index:(NSIndexPath *)indexPath{
         
@@ -130,8 +188,9 @@
 
     NSLog(@"Payment: %@", payment);
 
-//     cell.metricImage.file = payment[@"metricImage"];
     cell.metricImage.file = payment[@"metricWhiteImage"];
+//    cell.metricImage.file = payment[@"metricImage"];
+
     [cell.metricImage loadInBackground];
     
     [cell.timeLabel.layer setCornerRadius:8];
@@ -147,8 +206,12 @@
     NSString *dateString = [dateFormatter stringFromDate:createdAt];
     cell.timeLabel.text = createdAt.timeAgoSinceNow;
     
-    self.metricLabel.text = self.arrayOfMetricStrings[indexPath.row];
-    self.organizationLabel.text = self.arrayOfOrganizationStrings[indexPath.row];
+    NSString *metricQuantity = payment[@"metricQuantity"];
+    NSString *metricStringLabel = payment[@"metricString"];
+    NSString *metricSpace = [metricQuantity stringByAppendingString:@" "];
+    NSString *metricString = [metricSpace stringByAppendingString:metricStringLabel];
+    self.metricLabel.text = metricString;
+    self.organizationLabel.text = payment[@"organizationName"];
     
     //cell gradient
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -164,16 +227,18 @@
     [cell setBackgroundView:[[UIView alloc] init]];
     [cell.backgroundView.layer insertSublayer:grad atIndex:0];
 
-    CAGradientLayer *selectedGrad = [CAGradientLayer layer];
-    selectedGrad.frame = cell.bounds;
-    selectedGrad.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
-
-    [cell setSelectedBackgroundView:[[UIView alloc] init]];
-    [cell.selectedBackgroundView.layer insertSublayer:selectedGrad atIndex:0];
-    
+//    CAGradientLayer *selectedGrad = [CAGradientLayer layer];
+//    selectedGrad.frame = cell.bounds;
+//    selectedGrad.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+//
+//    [cell setSelectedBackgroundView:[[UIView alloc] init]];
+//    [cell.selectedBackgroundView.layer insertSublayer:selectedGrad atIndex:0];
+//
     //rounded corners
     cell.contentView.layer.cornerRadius = 30;
     cell.contentView.layer.masksToBounds = YES;
+    
+    self.confettiButton.tag = indexPath.row;
     
     return cell;
     
@@ -212,23 +277,24 @@
             NSLog(@"All Payments retrieved");
             self.arrayOfPayments = payments;
             
-            //create array of metric strings (e.g. "392 children vaccinated")
-            NSMutableArray *metricStringArray = [[NSMutableArray alloc] init];
-            //create array of organization names (e.g. "Helen Keller International")
-            NSMutableArray *organizationStringArray = [[NSMutableArray alloc] init];
-
+//            //create array of metric strings (e.g. "392 children vaccinated")
+//            NSMutableArray *metricStringArray = [[NSMutableArray alloc] init];
+//            //create array of organization names (e.g. "Helen Keller International")
+//            NSMutableArray *organizationStringArray = [[NSMutableArray alloc] init];
+//
             for (PFObject *payment in payments){
                 NSLog(@"%@", payment);
-                NSString *metricQuantity = payment[@"metricQuantity"];
-                NSString *metricStringLabel = payment[@"metricString"];
-                NSString *metricSpace = [metricQuantity stringByAppendingString:@" "];
-                NSString *metricString = [metricSpace stringByAppendingString:metricStringLabel];
-                [metricStringArray addObject:metricString];
-                [organizationStringArray addObject:payment[@"organizationName"]];
+//                [self.arrayOfPayments addObject:payment];
+//                NSString *metricQuantity = payment[@"metricQuantity"];
+//                NSString *metricStringLabel = payment[@"metricString"];
+//                NSString *metricSpace = [metricQuantity stringByAppendingString:@" "];
+//                NSString *metricString = [metricSpace stringByAppendingString:metricStringLabel];
+//                [metricStringArray addObject:metricString];
+//                [organizationStringArray addObject:payment[@"organizationName"]];
             }
-            
-            self.arrayOfMetricStrings = metricStringArray;
-            self.arrayOfOrganizationStrings = organizationStringArray;
+//
+//            self.arrayOfMetricStrings = metricStringArray;
+//            self.arrayOfOrganizationStrings = organizationStringArray;
             
             NSInteger transactionCount = self.arrayOfPayments.count;
             
