@@ -12,7 +12,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "MCSwipeCell.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @import MCSwipeTableViewCell;
 
@@ -31,6 +31,16 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    //ui for table view
+    self.tableView.layer.borderColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0].CGColor;
+    self.tableView.layer.borderWidth = 1;
+    self.tableView.layer.cornerRadius = 20;
+//    self.tableView.layer.borderColor = [UIColor colorWithWhite:0.6 alpha:1].CGColor;
+//     self.tableView.layer.borderWidth = 1;
+//     self.tableView.layer.cornerRadius = 4;
+    
+    
     [self fetchOrganizations];
     
     //refresh controls

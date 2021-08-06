@@ -10,7 +10,6 @@
 		0875B6AEFDDAD48E5748FF55 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1BDB99265314FC4D811387 /* Pods_GiveWellCharities_GiveWellCharitiesUITests.framework */; };
 		120831C5269FAABC00DFEB9C /* DonationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 120831C4269FAABC00DFEB9C /* DonationCell.m */; };
 		120B2A7B26BC071700BF94D1 /* MCSwipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 120B2A7A26BC071700BF94D1 /* MCSwipeCell.m */; };
-		121022D826BDB96500E90547 /* ConfettiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121022D726BDB96500E90547 /* ConfettiViewController.m */; };
 		121C31C726A5F5760024BB48 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121C31C626A5F5760024BB48 /* MapViewController.m */; };
 		121C31C926A5FAC90024BB48 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31C826A5FAC90024BB48 /* MapKit.framework */; };
 		121C31CB26A6006F0024BB48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121C31CA26A6006F0024BB48 /* CoreLocation.framework */; };
@@ -70,8 +69,6 @@
 		120831C4269FAABC00DFEB9C /* DonationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonationCell.m; sourceTree = "<group>"; };
 		120B2A7926BC071700BF94D1 /* MCSwipeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSwipeCell.h; sourceTree = "<group>"; };
 		120B2A7A26BC071700BF94D1 /* MCSwipeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSwipeCell.m; sourceTree = "<group>"; };
-		121022D626BDB96500E90547 /* ConfettiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfettiViewController.h; sourceTree = "<group>"; };
-		121022D726BDB96500E90547 /* ConfettiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfettiViewController.m; sourceTree = "<group>"; };
 		121C31C526A5F5760024BB48 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		121C31C626A5F5760024BB48 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		121C31C826A5FAC90024BB48 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -244,12 +241,6 @@
 				127D58CF269CC4E300F43132 /* SceneDelegate.h */,
 				127D58D0269CC4E300F43132 /* SceneDelegate.m */,
 				127D58D5269CC4E300F43132 /* Main.storyboard */,
-				12D1C03A26BC5B2B004BAFD6 /* UserDonationCell.h */,
-				12D1C03B26BC5B2B004BAFD6 /* UserDonationCell.m */,
-				1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */,
-				1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */,
-				121022D626BDB96500E90547 /* ConfettiViewController.h */,
-				121022D726BDB96500E90547 /* ConfettiViewController.m */,
 				127D58D8269CC4E400F43132 /* Assets.xcassets */,
 				127D58DA269CC4E400F43132 /* LaunchScreen.storyboard */,
 				127D58DD269CC4E400F43132 /* Info.plist */,
@@ -288,6 +279,8 @@
 				12C6830F269D0D0700BA08BF /* DetailsViewController.m */,
 				121F3BAD269E3E5D00CA1D38 /* DonateViewController.h */,
 				121F3BAE269E3E5D00CA1D38 /* DonateViewController.m */,
+				1290F47C26B08C840046E0E8 /* DonateWebKitViewController.h */,
+				1290F47D26B08C840046E0E8 /* DonateWebKitViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -305,6 +298,8 @@
 				1261BCDD26A0EABE00D6251F /* BankingCell.m */,
 				120B2A7926BC071700BF94D1 /* MCSwipeCell.h */,
 				120B2A7A26BC071700BF94D1 /* MCSwipeCell.m */,
+				12D1C03A26BC5B2B004BAFD6 /* UserDonationCell.h */,
+				12D1C03B26BC5B2B004BAFD6 /* UserDonationCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -621,7 +616,6 @@
 			files = (
 				127C219E26BC1DC700D594E4 /* UserProfileViewController.m in Sources */,
 				127D590A269CC6BA00F43132 /* OrganizationCell.m in Sources */,
-				121022D826BDB96500E90547 /* ConfettiViewController.m in Sources */,
 				127D58CE269CC4E300F43132 /* AppDelegate.m in Sources */,
 				1261BCD426A0DA8F00D6251F /* SettingsCell.m in Sources */,
 				12D0B43126BBEE9A00179709 /* UserLoginViewController.m in Sources */,

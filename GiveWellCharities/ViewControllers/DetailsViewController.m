@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *metricLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeControl;
 @property (weak, nonatomic) IBOutlet UILabel *minimumLabel;
+@property (weak, nonatomic) IBOutlet UIButton *impactMapButton;
+@property (weak, nonatomic) IBOutlet UIButton *donateButton;
 
 @end
 
@@ -37,6 +39,10 @@
     self.metricLabel.text = self.organization[@"metric"];
     self.quantityLabel.text = @"0"; //starts at 0
     self.minimumLabel.text = @""; //starts at an empty non-warning string
+    
+    //configure buttons
+    self.donateButton.layer.cornerRadius = 5;
+    self.impactMapButton.layer.cornerRadius = 5;
     
     //set organization logo image
     PFFileObject *logoPicture = self.organization[@"logo"];

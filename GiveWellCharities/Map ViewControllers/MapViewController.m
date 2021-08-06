@@ -72,6 +72,9 @@
             double latitude = [latitudeNumber doubleValue];
             marker.position = CLLocationCoordinate2DMake(latitude, longitude);
             
+            marker.icon = [GMSMarker markerImageWithColor:[UIColor greenColor]];
+
+            
             //marker text
             marker.title = location[@"metricQuantity"];
             marker.snippet = location[@"metricString"];
